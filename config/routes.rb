@@ -2,7 +2,8 @@ WorkingOn::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get 'welcome' => 'home#welcome', as: :welcome
+  get 'welcome'     => 'home#welcome',    as: :welcome
+  get 'styleguide'  => 'home#styleguide', as: :styleguide
 
   # You can have the root of your site routed with "root"
   root to: 'home#welcome'

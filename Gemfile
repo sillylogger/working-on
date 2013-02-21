@@ -25,7 +25,12 @@ end
 
 
 group :development, :test do
-  gem 'debugger'
+  gem 'guard'
+  gem 'rb-fsevent', '~> 0.9.1'
 
+  gem 'guard-livereload'
+  gem 'yajl-ruby'
+
+  gem 'debugger'
   gem 'rspec-rails',    github: 'rspec/rspec-rails'
 end

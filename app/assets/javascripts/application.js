@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.easing
+//= require jquery.ui.totop
+//= require smoothscroll
 //= require_tree .

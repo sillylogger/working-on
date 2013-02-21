@@ -1,0 +1,284 @@
+.row
+  .grid_12
+    %h1= link_to "Amazium Examples", "http://www.amazium.co.uk/"
+    %hr/
+    %p This page is just an example to get you started in building your own awesome responsive website..!
+.row
+  .grid_12
+    %h2
+      %strike 960
+      1200 Grid
+    %hr/
+.row.top
+  .grid_1
+    %span.example 1
+  .grid_1
+    %span.example 1
+  .grid_1
+    %span.example 1
+  .grid_1
+    %span.example 1
+  .grid_1
+    %span.example 1
+  .grid_1
+    %span.example 1
+  .grid_1
+    %span.example 1
+  .grid_1
+    %span.example 1
+  .grid_1
+    %span.example 1
+  .grid_1
+    %span.example 1
+  .grid_1
+    %span.example 1
+  .grid_1
+    %span.example 1
+.row
+  .grid_4
+    %span.example 4
+  .grid_4
+    %span.example 4
+  .grid_4
+    %span.example 4
+.row
+  .grid_4
+    %span.example 4
+  .grid_8
+    %span.example 8
+.row
+  .grid_6
+    %span.example 6
+  .grid_6
+    %span.example 6
+.row.base
+  .grid_12
+    %span.example 12
+.row
+  .grid_12
+    %h2 Offsetting columns
+    %hr/
+.row.top
+  .grid_4
+    %span.example 4
+  .grid_4.offset_4
+    %span.example 4 with 4 spacing
+.row
+  .grid_3.offset_3
+    %span.example 3
+  .grid_3.offset_3
+    %span.example 3 with 3 spacing
+.row.base
+  .grid_8.offset_4
+    %span.example 8 with 4 spacing
+.row
+  .grid_12
+    %h1 Typography & Bullets
+    %hr/
+.row
+  .grid_6
+    %p.intro
+      This paragraph is using a class called
+      %code .intro
+      which makes the font-size & line-height 130% and is perfect introduction text that doesn't need to be a H1.
+    %p
+      %a.btn{:href => "#"} This is a Button..!
+  .grid_3
+    %p
+      %code &lt;strong&gt;
+      %strong This text is rendered as bold.
+    %p
+      %code &lt;em&gt;
+      %em This text is rendered as italicized.
+    %p
+      %code &lt;small&gt;
+      %small This text is rendered for fine print.
+  .grid_3
+    %p
+      %code &lt;sup&gt;
+      This text is rendered as
+      %sup Superscript
+    %p
+      %code &lt;sub&gt;
+      This text is rendered as
+      %sub Subscript
+    %p
+      %code .highlight
+      This text is
+      %span.highlight Highlighted
+.row
+  .grid_12
+    %hr/
+.row
+  .grid_3
+    %h4
+      Normal Bullets (
+      %em> Custom Image
+      )
+    %ul
+      %li Cras mattis consectetur purus sit amet fermentum.
+      %li
+        Donec ullamcorper nulla non metus auctor fringilla.
+        %ul
+          %li Aenean eu leo quam.
+          %li Pellentesque ornare sem lacinia quam venenatis vestibulum.
+          %li Nullam quis risus eget urna mollis ornare vel eu leo.
+      %li Maecenas sed diam eget risus varius blandit sit amet non magna.
+    %p
+      For standard
+      %code &lt;ul&gt;
+      bullet ponts ive replace the normal dot with a graphic which can be changes easily
+    %blockquote
+      \&lt;ul&gt;
+      %br/
+      = succeed "&amp;lt;li&amp;gt;Your" do
+        %span
+      text here&lt;/li&gt;
+      %br/
+      \&lt;/ul&gt;
+  .grid_3
+    %h4 Ordered Bullets
+    %ol.square
+      %li Cras mattis consectetur purus sit amet fermentum.
+      %li
+        Donec ullamcorper nulla non metus auctor fringilla.
+        %ol
+          %li Aenean eu leo quam.
+          %li Pellentesque ornare sem lacinia quam venenatis vestibulum.
+          %li Nullam quis risus eget urna mollis ornare vel eu leo.
+      %li Maecenas sed diam eget risus varius blandit sit amet non magna.
+    %p
+      As with
+      %code &lt;ul&gt;
+      the ordered lists
+      %code &lt;ol&gt;
+      have had some extra CSS added to them so they are that little bit nicer to look at.
+    %blockquote
+      \&lt;ol&gt;
+      %br/
+      = succeed "&amp;lt;li&amp;gt;Your" do
+        %span
+      text here&lt;/li&gt;
+      %br/
+      \&lt;/ol&gt;
+  .grid_3
+    %h4 Round Bullets
+    %ul.circle
+      %li Cras mattis consectetur purus sit amet fermentum.
+      %li
+        Donec ullamcorper nulla non metus auctor fringilla.
+        %ul
+          %li Aenean eu leo quam.
+          %li Pellentesque ornare sem lacinia quam venenatis vestibulum.
+          %li Nullam quis risus eget urna mollis ornare vel eu leo.
+      %li Maecenas sed diam eget risus varius blandit sit amet non magna.
+    %p
+      For circular bullet point all you need to do is add the class
+      %code .circle
+      to the
+      %code &lt;ul&gt;
+    %blockquote
+      \&lt;ul class="circle"&gt;
+      %br/
+      = succeed "&amp;lt;li&amp;gt;Your" do
+        %span
+      text here&lt;/li&gt;
+      %br/
+      \&lt;/ul&gt;
+  .grid_3
+    %h4 Square Bullets
+    %ul.square
+      %li Cras mattis consectetur purus sit amet fermentum.
+      %li
+        Donec ullamcorper nulla non metus auctor fringilla.
+        %ul
+          %li Aenean eu leo quam.
+          %li Pellentesque ornare sem lacinia quam venenatis vestibulum.
+          %li Nullam quis risus eget urna mollis ornare vel eu leo.
+      %li Maecenas sed diam eget risus varius blandit sit amet non magna.
+    %p
+      For square bullet point all you need to do is add the class
+      %code .square
+      to the
+      %code &lt;ul&gt;
+    %blockquote
+      \&lt;ul class="square"&gt;
+      %br/
+      = succeed "&amp;lt;li&amp;gt;Your" do
+        %span
+      text here&lt;/li&gt;
+      %br/
+      \&lt;/ul&gt;
+.row
+  .grid_12
+    %hr/
+    %a{:name => "forms-tables"}
+    %h1 Forms & Tables
+    .row
+      .grid_6
+        %h3 Form
+        #stylized-form
+          %form#form{:action => "index.html", :method => "post", :name => "form"}
+            .wrapper-block
+              %label
+                Last Name:
+                %span.small-label Add your last name
+              %input#name{:name => "name", :type => "text"}/
+            .wrapper-block
+              %label{:for => "user"}
+                This is a Drop down:
+                %span.small-label Please select one option
+              %select#dropdown
+                %option Select something...
+                %option Drop down 01
+                %option Drop down 02
+            .wrapper-block
+              %label{:for => "comments"} Radio Buttons
+              = succeed "Yes" do
+                %input{:name => "radio1", :type => "radio"}/
+              = succeed "No" do
+                %input{:name => "radio2", :type => "radio"}/
+            .wrapper-block
+              %label{:for => "comments"} Check Boxes
+              = succeed "One" do
+                %input{:name => "checkbox1", :type => "checkbox"}/
+              = succeed "Two" do
+                %input{:name => "checkbox2", :type => "checkbox"}/
+            .wrapper-block
+              %label{:for => "comments"}
+                Feedback:
+                %span.small-label You can write your comments here
+              %textarea#comments{:cols => "10", :rows => "3"}
+            %input.submit.btn-form{:type => "submit", :value => "Submit"}/
+      .grid_6
+        %h3 Table
+        %table
+          %tr
+            %th.first.last{:colspan => "4"} Title
+          %tr
+            %th.first Item:
+            %th Category:
+            %th Description:
+            %th.last Size:
+          %tr.even
+            %td.first Bananas
+            %td Fruit
+            %td Desc
+            %td.last 1KG
+          %tr.odd
+            %td.first Apples
+            %td Fruit
+            %td Desc
+            %td.last 3KG
+          %tr.even
+            %td.first Oranges
+            %td Fruit
+            %td Desc
+            %td.last 2.5KG
+          %tr.odd
+            %td.first Mango
+            %td Fruit
+            %td.highlight Desc
+            %td.last 6KG
+        %p In Amazium I've included some styling for table elements like Table Headings (TH) and the option to have odd and even table rows as well as the ability to highlight a cell in your table..!
+    %hr/
