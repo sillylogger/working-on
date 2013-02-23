@@ -30,4 +30,24 @@ WorkingOn::Application.configure do
 
   # Debug mode disables concatenation and preprocessing of assets.
   config.assets.debug = true
+
+  # Enable serving of images, stylesheets, and JavaScripts from an asset server
+  config.action_controller.asset_host =       'http://localhost:3000'
+  config.action_mailer.asset_host =           'http://localhost:3000'
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Bo chup if the mailer can't send
+  config.action_mailer.delivery_method = :test
+  #  config.action_mailer.raise_delivery_errors = true
+  #  config.action_mailer.delivery_method = :smtp
+  #  config.action_mailer.smtp_settings = {
+  #    address: "smtp.gmail.com",
+  #    port: 587,
+  #    domain: "gmail.com",
+  #    tls: true,
+  #    authentication: "plain",
+  #    enable_starttls_auto: true,
+  #    user_name: "tommy.b.sullivan@gmail.com",
+  #    password: ""
+  #  }
 end
