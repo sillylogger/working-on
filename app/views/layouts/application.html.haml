@@ -3,7 +3,7 @@
   %head
     %meta{:charset => "utf-8"}/
 
-    %title this is what we are working on 
+    %title this is what we are working on
 
     /[if lt IE 9]
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -43,11 +43,9 @@
 
   %body
 
-    %p.notice= notice
-    %p.alert= alert
+    %header.row
+      .grid_8.offset_2
+        %p.notice= notice
+        %p.alert= alert
 
     = yield
-
-    %footer.row
-      .grid_4.offset_4
-        %p A footer!

@@ -13,19 +13,15 @@ gem 'omniauth-google-oauth2'
 
 gem 'jquery-rails',     github: 'rails/jquery-rails'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails',     github: 'rails/sass-rails'
   gem 'coffee-rails',   github: 'rails/coffee-rails'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
 group :development, :test do
+  gem 'sinatra'
+
   gem 'guard'
   gem 'rb-fsevent', '~> 0.9.1'
 

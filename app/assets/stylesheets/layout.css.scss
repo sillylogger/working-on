@@ -1,0 +1,226 @@
+/*
+* Amazium V1.3
+* Copyright 2012, Mike Ballan
+* www.amazium.co.uk
+*/
+
+/***** Screen 960px *****/
+
+/***** Logo, Btn & Phone Menu Btn *****/
+
+img.amazium-logo {
+  margin: 16px 0 16px 0;
+  width: 360px;
+  height: auto;
+}
+
+a {
+  &.navigation-btn {
+    display: none;
+    float: right;
+    img {
+      margin: 0 0 0 16px;
+      padding: 0;
+      width: 35px;
+      height: auto;
+      cursor: pointer;
+      float: right;
+    }
+  }
+}
+
+
+/***** Navigation *****/
+
+.navigation {
+  padding: 0 0 10px 0;
+  overflow: hidden;
+  height: auto;
+}
+
+ul.nav {
+  margin: 16px 0 40px 0;
+  padding: 0;
+  font-size: 12px;
+  list-style: none;
+  float: left;
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: 1px solid #333;
+  width: 100%;
+  li {
+    margin: 0 30px 0 0;
+    padding: 0;
+    display: block;
+    text-align: left;
+    float: left;
+    background-image: none;
+    a {
+      padding: 0 0 3px 0;
+      text-decoration: none;
+      line-height: 30px;
+      color: #333;
+      &:hover, &.current {
+        padding: 0 0 3px 0;
+        border-bottom: 5px solid #333;
+        text-decoration: none;
+        line-height: 30px;
+        color: #333;
+      }
+    }
+  }
+}
+
+.box {
+  padding: 15px 15px 5px 15px;
+  border: 3px dashed #999;
+  img {
+    margin: 0 20px 20px 0;
+    float: left;
+    width: 180px;
+    height: auto;
+  }
+  a.btn, .btn, a:hover.btn {
+    color: #FFF;
+    border: 1px solid #C53C54;
+    background: #c53c54 image-url('btn-arrow.png') no-repeat right;
+  }
+}
+
+/***** Example *****/
+
+.top {
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.base {
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+span.example {
+  margin-bottom: 5px;
+  padding: 5px 0 5px 0;
+  background-color: #eee;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+/***** Screen Bigger than 960px *****/
+@media only screen and (min-width: 1200px) {
+  .example {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/***** Tablet (Smaller than 959px) *****/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  /***** Logo, Btn & Phone Menu Btn *****/
+  img.amazium-logo {
+    margin: 16px 0 0 0;
+    width: 300px;
+    height: auto;
+  }
+  a.btn-download, .btn-download {
+    margin: 24px 0 0 0;
+  }
+  /***** Navigation *****/
+  ul.nav {
+    font-size: 11px;
+    li {
+      margin: 0 18px 0 0;
+    }
+  }
+  .box img {
+    margin: 0 10px 0 0;
+    float: left;
+    width: 120px;
+    height: auto;
+  }
+}
+
+/***** Phone (portrait 300px) *****/
+@media only screen and (max-width: 767px) {
+  /***** Logo, Btn & Phone Menu Btn *****/
+  img.amazium-logo {
+    margin: 6px 0 16px 0;
+    width: 216px;
+    height: auto;
+  }
+  a {
+    &.navigation-btn {
+      margin: 6px 0 0 0;
+      display: inline-block;
+    }
+    &.btn-download {
+      margin: 0;
+    }
+  }
+  .btn-download {
+    margin: 0;
+  }
+  /***** Navigation *****/
+  .navigation {
+    margin: 0 auto;
+    display: none;
+    background: none;
+    width: 100%;
+    background-color: #000;
+  }
+  ul.nav {
+    margin: 16px 0 40px 0;
+    padding: 0;
+    font-size: 12px;
+    list-style: none;
+    float: left;
+    text-transform: uppercase;
+    text-align: left;
+    border-bottom: 1px solid #FFF;
+    width: 100%;
+    li {
+      margin: 0 30px 0 0;
+      padding: 0;
+      display: block;
+      text-align: left;
+      float: left;
+      a {
+        padding: 0 0 3px 0;
+        text-decoration: none;
+        line-height: 30px;
+        color: #FFF;
+        &:hover, &.current {
+          padding: 0 0 3px 0;
+          border-bottom: 5px solid #333;
+          text-decoration: none;
+          line-height: 30px;
+          color: #FFF;
+        }
+      }
+    }
+  }
+  .box img {
+    margin: 0 10px 0 0;
+    float: left;
+    width: 80px;
+    height: auto;
+  }
+}
+
+/***** Phone (landscape 420px) *****/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .example {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/***** Retina *****/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+  .example {
+    margin: 0;
+    padding: 0;
+  }
+}

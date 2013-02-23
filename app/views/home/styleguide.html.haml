@@ -1,14 +1,55 @@
 .row
   .grid_12
-    %h1= link_to "Amazium Examples", "http://www.amazium.co.uk/"
-    %hr/
-    %p This page is just an example to get you started in building your own awesome responsive website..!
+    = link_to root_path do
+      = image_tag "amazium-logo.png", class: 'amazium-logo', alt: 'Amazium' 
+
+    = link_to "#", class: 'navigation-btn' do
+      = image_tag "icon-menu.png", width: 35, height: 35
+
+.navigation
+  .row
+    .grid_12
+      %ul.nav
+        %li
+          %a#01.current{:href => "#basics"} The basics...
+        %li
+          %a#02{:href => "#the-grid"} 960 Grid
+        %li
+          %a#03{:href => "#offsetting-columns"} Offsetting
+        %li
+          %a#04{:href => "#typography"} Typography
+        %li
+          %a#05{:href => "#show-hide"} Show/Hide
+        %li
+          %a#06{:href => "#forms-tables"} Forms & Tables
+        %li
+          %a#07{:href => "#media-queries"} Media Queries
+        %li
+          %a#08{:href => "#images"} Images
+        %li
+          %a#09{:href => "#videos"} Videos
 .row
   .grid_12
+    %a{:name => "basics"}
+    = image_tag "screens.png", class: 'img-right', alt: 'Screens'
+    %h1 The basics...
+    %p So what is Amazium I hear you ask, well you may have been hearing the term "Responsive Web Design" being thrown around the past few months, which simply means a website that can adjust to your screen size without having to make a separate website!
+    %p This came about from the simple fact that a lot of people have been making demos of this responsive web design but none seem to be using 960 grid system with 12 columns, and because of this I was forced to make my own..!
+    %p
+      If you find a bug or have a suggestion to improve Amazium I'm always open to suggestions, just use the
+      %a{:href => "#feedback"}
+        %code comments box
+      at the bottom of the page.
+
+.row.top
+  .grid_12
+    %a{:name => "the-grid"}
     %h2
       %strike 960
       1200 Grid
-    %hr/
+    %p OK so the 960 Grid is what you would expect most modern websites to follow as its set up to be a max width of 960px which will fit the most common screen resolution 1024x768. but as of late I've noticed a lot of sites have been pushing this to 1200 so I've added another query to allow your site to scale to 1200px..! But for the sake of the demos on this site i'll stay with the standard 960px
+    %p Now to date I have not found a simpler way to build a website than this system which only relies on the below code to achieve a solid website. And as most new browsers excepting the "Media Queries" code we are now able to resize the grid based on your screen resolution so if you were to view this on say an iPhone you would get an optimised version of the grid which means you no longer have to zoom in to see text on a website. (Go on give it a try now and see the below stay responsive..!)
+
 .row.top
   .grid_1
     %span.example 1
@@ -54,10 +95,65 @@
 .row.base
   .grid_12
     %span.example 12
+
+.row
+  .grid_6
+
+    %h3 Example I
+    %p The code below would create a one section that is 920px wide.
+    %blockquote
+      &lt;div class="row"&gt;<br />
+      <span></span>&lt;div class="grid_12"&gt;<br />
+      <span></span><span></span>---Your text here---<br />
+      <span></span>&lt;/div&gt;<br />
+      &lt;/div&gt;
+
+    %h3 Example II
+    %p
+      Now if you wanted to have two columns say one for a side navigation and one for you main content you would simple use this code. (
+      %em> This would generate a of 280px and another at 600px
+      )
+    %blockquote
+      &lt;div class="row"&gt;<br />
+      <span></span>&lt;div class="grid_4"&gt;<br />
+      <span></span><span></span>---Your text here---<br />
+      <span></span>&lt;/div&gt;<br />
+      <span></span>&lt;div class="grid_8"&gt;<br />
+      <span></span><span></span>---Your text here---<br />
+      <span></span>&lt;/div&gt;<br />
+      &lt;/div&gt;
+
+  .grid_6
+    %h3 Example III
+    %p If you wanted to nest two columns inside a larger this is no problem either as the below code shows and there is no need to add/change your CSS either..!
+    %blockquote
+      &lt;div class="row"&gt;<br />
+      <span></span>&lt;div class="grid_12"&gt;<br />
+      <span></span><span></span>---Your text here---<br />
+      <span></span><span></span>&lt;div class="row"&gt;<br />
+      <span></span><span></span><span></span>&lt;div class="grid_6"&gt;<br />
+      <span></span><span></span><span></span><span></span>---1 of 2 columns---<br />
+      <span></span><span></span><span></span>&lt;/div&gt;<br />
+      <span></span><span></span><span></span>&lt;div class="grid_6"&gt;<br />
+      <span></span><span></span><span></span><span></span>---2 of 2 columns---<br />
+      <span></span><span></span><span></span>&lt;/div&gt;<br />
+      <span></span><span></span>&lt;/div&gt;<br />
+      <span></span>&lt;/div&gt;<br />
+      &lt;/div&gt;
+    %p Now as you can see from the above grid layout I have made Amazium have 16px gutters/margins left & right which could be changed if you wanted less but I had been using 10px before but found them a little tight for my liking.
 .row
   .grid_12
-    %h2 Offsetting columns
     %hr/
+    %a{:name => "offsetting-columns"}
+    %h1 Offsetting columns
+    %p
+      Amazium also has the option to offset a column, which should make life all the bit easier if you you need to add an extra bit of space between columns. This is done by adding the class
+      %code offset
+      followed by how many columns you want the offset to be i.e. if you want to have an offset of 4 then a column of 8 all you need to do is add
+      %code offset_4
+      after
+      = succeed "." do
+        %code grid_8
 .row.top
   .grid_4
     %span.example 4
@@ -73,23 +169,25 @@
     %span.example 8 with 4 spacing
 .row
   .grid_12
-    %h1 Typography & Bullets
     %hr/
+    %a{:name => "typography"}
+    %h1 Typography
 .row
   .grid_6
+    %p In Amazium I have set up all the basic typography styling which includes font type defaulted to Century Gothic, but you can easily change in at the very top of the base.css file and all regular paragraphs are set with 20px line height and 10px padding to the bottom of them.
     %p.intro
       This paragraph is using a class called
       %code .intro
       which makes the font-size & line-height 130% and is perfect introduction text that doesn't need to be a H1.
     %p
-      %a.btn{:href => "#"} This is a Button..!
+      = link_to "This is a Button..!", "#", class: 'btn'
   .grid_3
     %p
       %code &lt;strong&gt;
       %strong This text is rendered as bold.
     %p
       %code &lt;em&gt;
-      %em This text is rendered as italicized.
+      %em This text is rendered as italicised.
     %p
       %code &lt;small&gt;
       %small This text is rendered for fine print.
@@ -109,7 +207,9 @@
 .row
   .grid_12
     %hr/
+
 .row
+
   .grid_3
     %h4
       Normal Bullets (
@@ -129,13 +229,10 @@
       %code &lt;ul&gt;
       bullet ponts ive replace the normal dot with a graphic which can be changes easily
     %blockquote
-      \&lt;ul&gt;
-      %br/
-      = succeed "&amp;lt;li&amp;gt;Your" do
-        %span
-      text here&lt;/li&gt;
-      %br/
-      \&lt;/ul&gt;
+      &lt;ul&gt;<br />
+      <span></span>&lt;li&gt;Your text here&lt;/li&gt;<br />
+      &lt;/ul&gt;
+
   .grid_3
     %h4 Ordered Bullets
     %ol.square
@@ -153,14 +250,12 @@
       the ordered lists
       %code &lt;ol&gt;
       have had some extra CSS added to them so they are that little bit nicer to look at.
+
     %blockquote
-      \&lt;ol&gt;
-      %br/
-      = succeed "&amp;lt;li&amp;gt;Your" do
-        %span
-      text here&lt;/li&gt;
-      %br/
-      \&lt;/ol&gt;
+      &lt;ol&gt;<br />
+      <span></span>&lt;li&gt;Your text here&lt;/li&gt;<br />
+      &lt;/ol&gt;
+
   .grid_3
     %h4 Round Bullets
     %ul.circle
@@ -178,13 +273,10 @@
       to the
       %code &lt;ul&gt;
     %blockquote
-      \&lt;ul class="circle"&gt;
-      %br/
-      = succeed "&amp;lt;li&amp;gt;Your" do
-        %span
-      text here&lt;/li&gt;
-      %br/
-      \&lt;/ul&gt;
+      &lt;ul class="circle"&gt;<br />
+      <span></span>&lt;li&gt;Your text here&lt;/li&gt;<br />
+      &lt;/ul&gt;
+
   .grid_3
     %h4 Square Bullets
     %ul.square
@@ -202,18 +294,39 @@
       to the
       %code &lt;ul&gt;
     %blockquote
-      \&lt;ul class="square"&gt;
-      %br/
-      = succeed "&amp;lt;li&amp;gt;Your" do
-        %span
-      text here&lt;/li&gt;
-      %br/
-      \&lt;/ul&gt;
+      &lt;ul class="square"&gt;<br />
+      <span></span>&lt;li&gt;Your text here&lt;/li&gt;<br />
+      &lt;/ul&gt;
+
+.row
+  .grid_12
+    %hr/
+    %a{:name => "show-hide"}
+    %h1 Show & Hide
+    %p There are times when you may need to only show something on a desktop and not a tablet & phone or the reverse and with that in mind rather than adding a display:none; class I've done the work for you with some extra classes to hide & show content.
+    %p.show-tablet
+      = image_tag "tablet.png", class: 'max-img', alt: 'Tablet'
+    %p.show-screen
+      = image_tag "screen.png", class: 'max-img', alt: 'Screen'
+    %p.show-phone
+      = image_tag "phone.png", class: 'max-img', alt: 'Phone'
+    %h3 Code examples:
+    %table
+      %tr.even
+        %td.first hide-tablet
+        %td hide-screen
+        %td.last hide-phone
+      %tr.even
+        %td.first show-tablet
+        %td show-screen
+        %td.last show-phone
 .row
   .grid_12
     %hr/
     %a{:name => "forms-tables"}
     %h1 Forms & Tables
+    %p Now forms can be one of the biggest pains in the neck for web developers, so I have included a simple form in Amazium with some very basic styling which has all the elements you will need to make your own form.
+    %p As well as form styling I've also included some styling for tables which to be honest I haven't used that much outside building emails but it's there in case you ever need it..!
     .row
       .grid_6
         %h3 Form
@@ -282,3 +395,137 @@
             %td.last 6KG
         %p In Amazium I've included some styling for table elements like Table Headings (TH) and the option to have odd and even table rows as well as the ability to highlight a cell in your table..!
     %hr/
+.row
+  .grid_12
+    %a{:name => "media-queries"}
+    %h1 Media Queries
+    .row
+      .grid_8
+        %p Amazium uses 6 main media queries to adjust the layout of your website to match the size of your screen. The media queries in Amazium only target at max and min widths rather than device sizes or orientations, which means that any new mobile or browsers that don't match the exact dimensions will still benefit from the styling.
+        %p Now I have to say I 'm a little biased towards most things Apple which means the sizes I've chosen works perfectly for iPad & iPhone and everything else I've been able to test Amazium on seems to work fine also..!
+        %h3 Example
+        %blockquote
+          @media only screen and (min-width: 480px) and (max-width: 767px) {
+          %br/
+          = succeed "---CSS" do
+            %span
+          here---
+          %br/
+          }
+      .grid_4
+        %h3 The main media queries are...
+        %ul.fancy
+          %li Default browser width 960px
+          %li Browsers width over 960px max 1200px
+          %li Hi-res / Retina (Pixel ratio:2)
+          %li iPad or other tablet Portrait (728px)
+          %li iPhone or mobile Portrait (300px)
+          %li iPhone or mobile Lanscape (420px)
+.row
+  .grid_12
+    %hr/
+    %a{:name => "images"}
+    %h1 Images
+    %p
+      Seeing how you website will be responsive there will be times when you will need your images to be responsive to and with this in mind I've made a nice little style to make any image 100% responsive, all you need to do is add this little class to your image:
+      %strong class="max-img"
+      and hay presto responsive images..!
+    .row
+      .grid_6
+        %p= image_tag "blank.jpg", class: 'max-img', alt: 'blank image', border: '0'
+      .grid_4
+        %p= image_tag "blank.jpg", class: 'max-img', alt: 'blank image', border: '0'
+      .grid_2
+        %p= image_tag "blank.jpg", class: 'max-img', alt: 'blank image', border: '0'
+    %h3 Image code example:
+    %blockquote
+      \&lt;img src="blank.jpg" border="0"  alt="blank image" class="max-img"&gt;
+.row
+  .grid_12
+    %hr/
+    %a{:name => "videos"}
+    %h1 Videos
+    %p As mentioned above about images I suspect that you would also like to have all your videos be responsive as well and with this in mind I had to do a little searching around on the web to find the answer for this which is very simple.
+    %p All you will need to do is wrap your video with a div that has a class called "video-container" and thats it one responsive video..!
+    .row
+      .grid_6
+        %h3 Vimeo
+        .media
+          %iframe{:frameborder => "0", :src => "http://player.vimeo.com/video/21465475?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=0"}
+      .grid_6
+        %h3 YouTube
+        .media
+          %iframe{:allowfullscreen => "", :frameborder => "0", :src => "http://www.youtube.com/embed/d3J12dNz4xo"}
+    %h3 Video code example:
+    %blockquote
+      &lt;div class="media"&gt;<br />
+      <span></span>&lt;iframe src="http://www.youtube.com/embed/d3J12dNz4xo" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;<br />
+      &lt;/div&gt;
+
+    %p One thing to point out is that the we have found that the new HTC mobile browsers don't seem to like the new embedding code that YouTube uses so it might be an idea to use the old fashioned method as this seems to work fine.
+    %p Although as you can see below that there is a lot more code for the old method..!
+    %blockquote
+      &lt;div class="media"&gt;<br />
+      <span></span>&lt;object width="640" height="390"&gt;<br />
+      <span></span><span></span>&lt;param name="movie" value="http://www.youtube.com/v/d3J12dNz4xo?version=3&amp;hl=en_US&amp;rel=0"&gt;&lt;/param&gt;<br />
+      <span></span><span></span>&lt;param name="allowFullScreen" value="true"&gt;&lt;/param&gt;<br />
+      <span></span><span></span>&lt;param name="allowscriptaccess" value="always"&gt;&lt;/param&gt;<br />
+      <span></span><span></span>&lt;embed src="http://www.youtube.com/v/d3J12dNz4xo?version=3&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash"<br />
+      <span></span><span></span>width="640" height="390" allowscriptaccess="always" allowfullscreen="true"&gt;&lt;/embed&gt;<br />
+      <span></span>&lt;/object&gt;<br />
+      &lt;/div&gt;
+
+    %a{:name => "download"}
+    %hr/
+.row
+  .grid_12
+    %h1 Whats inside..?
+    %p So you may want to know what is in this Amazium download well funny you ask as I've made a list below with what you will find inside.
+    %h3 HTML
+    %ul.square
+      %li
+        %strong> index.html
+        \: The base html page with all the includes setup for you as well as some examples for you to use quickly like Tables & Forms.
+    %h3 CSS
+    %ul.square
+      %li
+        %strong> base.css
+        \: All the generic styling you would expect I .e. h1, h2, h3, h4, h5, h6, blockquote's, Links, Bulleted list's etc. and your standard generic CSS reset.
+      %li
+        %strong> amazium.css
+        \: The backbone for controlling the 960 grid, depending on what device you are looking on and you shouldn't need to change any of this.
+      %li
+        %strong> layout.css
+        \: A blank place to add all the CSS that makes your site look awesome.
+    %h3 Images
+    %ul.square
+      %li
+        %strong> favicon.ico
+        \: Standard 16px x 16px favicon
+      %li
+        %strong apple-touch-icon
+        (x3): All three sizes of Apple touch icons for iPhone 3, iPad and iPhone 4 with retina.
+    %p
+      As well as all of the above I've included a few other scripts in Amazium like the "
+      %strong> smoothscroll.js
+      " which makes page anchoring that little bit funkier and not forgetting the awesome "
+      %strong> totop.js
+      " which you will see on the bottom right hand side of this site.
+.row
+  .grid_12
+    %hr/
+    %h1 Change Log
+    %ul.fancy
+      %li 12/09/2012 - Site updated and some minor CSS changes.
+      %li 11/06/2012 - Updated a few class names and website refresh too..!
+      %li 01/05/2012 - Added Media Queries for both screen sizes above 960px (max 1200px) & Hi-res / Retina screens..!
+      %li 23/02/2012 - New PSD download which has the 960 grid setup for you based on 32px gutters/margins..!
+      %li 23/02/2012 - With the suggestion by Qianzhi Wu i have removed the need to include the "column" class before you set what grid width you wanted.
+      %li 22/02/2012 - I've added the option to now offset a column, which should help out with layout I hope.
+      %li 01/02/2012 - Tweaked the CSS files to make it easier to understand Amazium.
+      %li 02/09/2011 - Updated Amazium.css for better iPhone/Mobile display.
+      %li 22/08/2011 - Tweaked layout.css with better widths.
+      %li 07/08/2011 - Amazium made live..!
+.row
+  .grid_12
+    %a.amazium{:href => "http://www.mikeballan.co.uk", :target => "_blank"} This site may contain traces of Amazium
