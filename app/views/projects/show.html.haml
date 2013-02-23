@@ -1,0 +1,10 @@
+.row
+  .grid_12
+    %h2
+      #{@project.title},
+      = link_to 'edit', edit_project_path(@project)
+
+    - if @project.url
+      %h3= link_to @project.url, @project.url
+
+    %p.intro= @project.description

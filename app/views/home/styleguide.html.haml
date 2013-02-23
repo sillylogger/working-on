@@ -181,6 +181,7 @@
       which makes the font-size & line-height 130% and is perfect introduction text that doesn't need to be a H1.
     %p
       = link_to "This is a Button..!", "#", class: 'btn'
+      = link_to "This has an Arrow..!", "#", class: 'btn with-arrow'
   .grid_3
     %p
       %code &lt;strong&gt;
@@ -333,12 +334,12 @@
         #stylized-form
           %form#form{:action => "index.html", :method => "post", :name => "form"}
             .wrapper-block
-              %label
+              %label.with-tip
                 Last Name:
                 %span.small-label Add your last name
               %input#name{:name => "name", :type => "text"}/
             .wrapper-block
-              %label{:for => "user"}
+              %label.with-tip{for: "user"}
                 This is a Drop down:
                 %span.small-label Please select one option
               %select#dropdown
@@ -346,23 +347,23 @@
                 %option Drop down 01
                 %option Drop down 02
             .wrapper-block
-              %label{:for => "comments"} Radio Buttons
+              %label{for: "comments"} Radio Buttons
               = succeed "Yes" do
                 %input{:name => "radio1", :type => "radio"}/
               = succeed "No" do
                 %input{:name => "radio2", :type => "radio"}/
             .wrapper-block
-              %label{:for => "comments"} Check Boxes
+              %label{for: "comments"} Check Boxes
               = succeed "One" do
                 %input{:name => "checkbox1", :type => "checkbox"}/
               = succeed "Two" do
                 %input{:name => "checkbox2", :type => "checkbox"}/
             .wrapper-block
-              %label{:for => "comments"}
+              %label.with-tip{for: "comments"}
                 Feedback:
                 %span.small-label You can write your comments here
               %textarea#comments{:cols => "10", :rows => "3"}
-            %input.submit.btn-form{:type => "submit", :value => "Submit"}/
+            %input.submit.btn-form.with-arrow{:type => "submit", :value => "Submit"}/
       .grid_6
         %h3 Table
         %table

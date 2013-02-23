@@ -1,0 +1,16 @@
+= form_for @project do |f|
+  - if @project.errors.any?
+    %p Sorry, but: #{@project.errors.full_messages.join(', ')}
+
+  .wrapper-block
+    = f.label :title,       class: 'without-tip'
+    = f.text_field :title
+  .wrapper-block
+    = f.label :url,         class: 'without-tip'
+    = f.text_field :url
+  .wrapper-block
+    = f.label :description, class: 'without-tip'
+    = f.text_area :description
+
+  = f.submit 'Save',        class: 'btn-form'
+

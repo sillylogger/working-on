@@ -1,0 +1,9 @@
+.row
+  .grid_12
+    %h1 Editing #{@project.title}
+
+    = render 'form'
+
+    %hr
+
+    = link_to 'Destroy', project_path(@project), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn-form'

@@ -373,19 +373,24 @@ img {
 
 a.btn, .btn {
   margin: 5px 0 5px 0;
-  padding: 4px 25px 4px 10px;
+  padding: 4px 10px;
   display: inline-block;
   color: #fff;
   border: 1px solid #000;
-  background: black image-url('btn-arrow.png') no-repeat right;
+  background-color: black;
   cursor: pointer;
+  
+  &.with-arrow {
+    padding-right: 25px;
+    background-image: image-url('btn-arrow.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+  }
 }
 
 a:hover.btn {
   text-decoration: none;
-  border: 1px solid #000;
   color: #666;
-  background: black image-url('btn-arrow.png') no-repeat right;
 }
 
 /***** Forms *****/
@@ -399,6 +404,7 @@ a:hover.btn {
 }
 
 .wrapper-block {
+
   label {
     padding: 0;
     display: block;
@@ -406,7 +412,12 @@ a:hover.btn {
     text-align: right;
     width: 140px;
     float: left;
+
+    &.without-tip {
+      line-height: 30px;
+    }
   }
+
   [type="text"] {
     font-size: 12px;
     padding: 4px 2px;
@@ -414,22 +425,31 @@ a:hover.btn {
     width: 200px;
     margin: 2px 0 15px 10px;
   }
+
   select {
     font-size: 12px;
     padding: 2px;
     border: solid 1px #bbbbbb;
     margin: 2px 0 15px 10px;
   }
-  [type="radio"], [type="checkbox"] {
+
+  [type="radio"],
+  [type="checkbox"] {
     line-height: 16px;
     margin: 0 2px 15px 10px;
   }
+
   textarea {
     padding: 4px 2px;
     border: solid 1px #bbbbbb;
     width: 200px;
     margin: 2px 0 15px 10px;
     font: 12px "Century Gothic", "Trebuchet MS", Helvetica, sans-serif;
+  }
+
+  .field_with_errors {
+    label { color: red; }
+    input { border: solid 1px rgb(206, 0, 0); }
   }
 }
 
@@ -472,18 +492,23 @@ a:hover.btn {
   }
 }
 
-a.btn-form, input.btn-form {
+a.btn-form,
+input.btn-form {
   margin: 5px 0 5px 150px;
-  padding: 4px 28px 4px 8px;
+  padding: 4px 10px;
   display: inline-block;
-  font-size: 11px;
   color: #fff;
+  font-size: 1em;
   border: 1px solid #444;
-  background: #333333 image-url('btn-arrow.png') no-repeat right;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
+  background-color: #333333;
   cursor: pointer;
+
+  &.with-arrow {
+    padding-right: 25px;
+    background-image: image-url('btn-arrow.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+  }
 }
 
 .small-label {
