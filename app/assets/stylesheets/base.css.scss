@@ -193,12 +193,14 @@ ul, ol {
 
 ul {
   list-style: none outside;
-  li {
-    margin: 0 0 5px 0;
-    padding: 0 0 0 18px;
-    line-height: 18px;
-    background: transparent image-url('bullet.png') no-repeat 0 3px;
-  }
+
+  // li {
+  //   margin: 0 0 5px 0;
+  //   padding: 0 0 0 18px;
+  //   line-height: 18px;
+  //   background: transparent image-url('bullet.png') no-repeat 0 3px;
+  // }
+
   ul, ol {
     margin: 5px 0 5px 0;
   }
@@ -223,30 +225,37 @@ ol {
 }
 
 ul {
+
   &.square {
     list-style: square outside;
     ul {
       list-style: square outside;
     }
   }
+
   &.circle {
     list-style: circle outside;
     ul {
       list-style: circle outside;
     }
   }
+
   &.disc {
     list-style: disc outside;
     ul {
       list-style: disc outside;
     }
   }
-  &.square li, &.circle li, &.disc li {
+
+  &.square li,
+  &.circle li,
+  &.disc li {
     margin: 0 0 5px 15px;
     padding: 0;
     line-height: 18px;
     background: none;
   }
+
 }
 
 ol {

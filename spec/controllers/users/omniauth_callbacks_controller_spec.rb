@@ -20,7 +20,7 @@ describe Users::OmniauthCallbacksController do
       flash[:notice].should match(/Success.*Google/)
     end
 
-    it { should redirect_to(root_path) }
+    it { should redirect_to(dashboard_path) }
 
     context "when the user create fails" do
       let(:user) { User.new }

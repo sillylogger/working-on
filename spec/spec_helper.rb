@@ -34,4 +34,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # I'm going to render the views until I have 500 controller specs.
+  # Re-evaluate then
+  config.render_views
 end

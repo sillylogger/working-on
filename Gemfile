@@ -20,14 +20,15 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'sinatra'
+  gem 'rb-fsevent', '~> 0.9.1'
 
   gem 'guard'
-  gem 'rb-fsevent', '~> 0.9.1'
+  gem 'guard-rspec'
 
   gem 'guard-livereload'
   gem 'yajl-ruby'
 
   gem 'debugger'
   gem 'rspec-rails',    github: 'rspec/rspec-rails'
+  gem 'shoulda-matchers'
 end

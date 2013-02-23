@@ -1,0 +1,15 @@
+.row
+
+  .intro.grid_8
+    %h2 Projects at #{current_user.email.sub(/.*@/,'')}:
+
+    .blank_slate_container
+      %span.blank_slate There aren't any projects yet.
+
+  .grid_4
+    %h2 Your projects:
+
+    %ul
+      %li.blank_slate_container
+        .blank_slate= link_to "Add a Project!", "#"
+

@@ -1,0 +1,39 @@
+%meta{:charset => "utf-8"}/
+
+%title this is what we are working on
+
+/[if lt IE 9]
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
+= csrf_meta_tags
+
+/ Mobile Specific Metas
+%meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+
+:javascript
+  var browser         = navigator.userAgent;
+  var browserRegex    = /(Android|BlackBerry|IEMobile|Nokia|iP(ad|hone|od)|Opera M(obi|ini))/;
+  var isMobile        = false;
+  if(browser.match(browserRegex)) {
+      isMobile            = true;
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+      function hideURLbar(){
+          window.scrollTo(0,1);
+      }
+  }
+
+/ CSS
+= stylesheet_link_tag 'application'
+
+/ Favicons
+%link{:href => "/assets/favicon.ico", :rel => "shortcut icon"}/
+%link{:href => "/assets/apple-touch-icon.png", :rel => "apple-touch-icon-precomposed"}/
+%link{:href => "/assets/apple-touch-icon-72x72.png", :rel => "apple-touch-icon-precomposed", :sizes => "72x72"}/
+%link{:href => "/assets/apple-touch-icon-114x114.png", :rel => "apple-touch-icon-precomposed", :sizes => "114x114"}/
+
+/ To Top scripts
+= javascript_include_tag 'application'
+:javascript
+  $(document).ready(function() {
+      $().UItoTop({ easingType: 'easeOutQuart' });
+  });
