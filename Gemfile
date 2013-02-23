@@ -4,6 +4,8 @@ gem 'rails',            github: 'rails/rails'
 
 gem 'pg'
 
+gem 'devise',           github: 'plataformatec/devise', branch: 'rails4'
+
 gem 'haml-rails',       github: 'indirect/haml-rails'
 
 gem 'omniauth'
@@ -22,7 +24,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
 
 group :development, :test do
   gem 'guard'

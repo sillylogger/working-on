@@ -5,9 +5,9 @@
     %hr/
 
 .row
-  .grid_8
-    %p.top.intro Do you have offices around the world &mdash; and maybe even a moonbase? It's got to be difficult keeping track of what everyone is working on.
-    %p= link_to "Let's fix that!", '#', class: 'btn'
+  .intro.grid_8
+    %p.top Do you have offices around the world &mdash; and maybe even a moonbase? It's got to be difficult keeping track of what everyone is working on.
+    = link_to "Let's fix that!", user_omniauth_authorize_path(:google_oauth2), class: 'btn'
 
   .grid_4
 

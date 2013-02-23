@@ -9,6 +9,17 @@ GIT
       railties (>= 3.1, < 4.1)
 
 GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 5aa3cdd8a690121223dd12274ec49cfd00c1666b
+  branch: rails4
+  specs:
+    devise (2.2.3)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 4.0.0.beta)
+      warden (~> 1.2.1)
+
+GIT
   remote: git://github.com/rails/coffee-rails.git
   revision: a30c954554022caca62f7b362ee6f43eba7dc166
   specs:
@@ -94,6 +105,7 @@ GEM
     activerecord-deprecated_finders (0.0.3)
     arel (3.0.2)
     atomic (1.0.1)
+    bcrypt-ruby (3.0.1)
     builder (3.1.4)
     coderay (1.0.9)
     coffee-script (2.2.0)
@@ -164,6 +176,7 @@ GEM
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
+    orm_adapter (0.4.0)
     pg (0.14.1)
     polyglot (0.3.3)
     pry (0.9.12)
@@ -204,6 +217,8 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    warden (1.2.1)
+      rack (>= 1.0)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -212,6 +227,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails!
   debugger
+  devise!
   guard
   guard-livereload
   haml-rails!
