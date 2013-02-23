@@ -1,4 +1,6 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
+
+ruby '2.0.0'
 
 gem 'rails',            github: 'rails/rails'
 
@@ -28,7 +30,6 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'yajl-ruby'
 
-  gem 'debugger'
   gem 'rspec-rails',    github: 'rspec/rspec-rails'
   gem 'shoulda-matchers'
 end
