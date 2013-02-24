@@ -4,7 +4,17 @@
       #{@project.title},
       = link_to 'edit', edit_project_path(@project)
 
-    - if @project.url
-      %h3= link_to @project.url, @project.url
-
+.row
+  .grid_6
+    %h4= link_to @project.url, @project.url
     %p.intro= @project.description
+
+  .grid_6
+
+    %ul
+      - @project.screenshots.each do |screenshot|
+        %li[screenshot]
+          = image_tag screenshot.image.thumb, class: 'img-left'
+          %p= screenshot.description
+
+

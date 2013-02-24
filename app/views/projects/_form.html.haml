@@ -1,16 +1,45 @@
-= form_for @project do |f|
+= nested_form_for @project, html: { multipart: true } do |f|
+
   - if @project.errors.any?
     %p Sorry, but: #{@project.errors.full_messages.join(', ')}
 
-  .wrapper-block
-    = f.label :title,       class: 'without-tip'
-    = f.text_field :title
-  .wrapper-block
-    = f.label :url,         class: 'without-tip'
-    = f.text_field :url
-  .wrapper-block
-    = f.label :description, class: 'without-tip'
-    = f.text_area :description
+  .row
+    .grid_6
+      %header
+        %h4 Details:
 
-  = f.submit 'Save',        class: 'btn-form'
+      .wrapper-block
+        = f.label :title,       class: 'without-tip'
+        = f.text_field :title
 
+      .wrapper-block
+        = f.label :url,         class: 'without-tip'
+        = f.text_field :url
+
+      .wrapper-block
+        = f.label :description
+        = f.text_area :description
+
+
+    .grid_6
+      %header
+        %h4 Screenshots:
+
+      = f.fields_for :screenshots do |screenshot_form|
+        .screenshot
+          .wrapper-block
+            = screenshot_form.label :description
+            = screenshot_form.text_area :description
+
+          .wrapper-block
+            = screenshot_form.label :image, class: 'without-tip'
+            = screenshot_form.file_field :image
+
+          .wrapper-block
+            = screenshot_form.link_to_remove "Remove this screenshot", class: 'input-aligned'
+
+      = f.link_to_add "Add screenshot", :screenshots
+
+  .row
+    .grid_12
+      = f.submit 'Save',        class: 'btn-form'

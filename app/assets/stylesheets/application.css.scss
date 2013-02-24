@@ -23,6 +23,9 @@ body > header.alerts {
 
 body > footer.row {
   margin-top: 20em;
+  margin-bottom: 2em;
+
+  p { padding-bottom: 0; }
 }
 
 /***** Screen 960px *****/

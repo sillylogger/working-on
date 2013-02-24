@@ -54,7 +54,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: working-on-production
+  database: working-on-development
   pool: 5
   username: postgresuser
   password: TopSecret

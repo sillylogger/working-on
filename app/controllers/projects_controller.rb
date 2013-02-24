@@ -18,7 +18,6 @@ class ProjectsController < ApplicationController
   # POST /projects
   def create
     @project = Project.new(project_params)
-
     if @project.save
       redirect_to @project, notice: 'Project was successfully created.'
     else
@@ -49,6 +48,8 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :url, :description, :user_id)
+      params.require(:project).permit(:title, :url, :description, :screenshots_attributes => [
+        :description, :image, :_destroy
+      ])
     end
 end

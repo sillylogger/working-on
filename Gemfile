@@ -8,7 +8,12 @@ gem 'pg'
 
 gem 'devise',           github: 'plataformatec/devise', branch: 'rails4'
 
+gem 'fog',              github: 'fog/fog'
+gem 'carrierwave',      github: 'jnicklas/carrierwave'
+gem 'rmagick'
+
 gem 'haml-rails',       github: 'indirect/haml-rails'
+gem 'nested_form',      github: 'ryanb/nested_form'
 
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
@@ -29,6 +34,8 @@ group :development, :test do
 
   gem 'guard-livereload'
   gem 'yajl-ruby'
+
+  gem 'debugger',       github: 'cldwalker/debugger'
 
   gem 'rspec-rails',    github: 'rspec/rspec-rails'
   gem 'shoulda-matchers'

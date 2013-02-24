@@ -1,9 +1,10 @@
 .row
   .grid_12
-    %h1 Editing #{@project.title}
+    %h2= @project.title
 
-    = render 'form'
+= render 'form'
 
+.row
+  .grid_12
     %hr
-
-    = link_to 'Destroy', project_path(@project), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn-form'
+    = link_to 'Destroy!', project_path(@project), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn-form'

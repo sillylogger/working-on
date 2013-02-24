@@ -17,9 +17,13 @@ describe HomeController do
 
     let(:user) { User.create! email: 'user@example.com', name: 'John Doe' }
 
-    it "renders the dashboard page" do
-      get :dashboard
-      should render_template('home/dashboard')
+    describe "the controller" do
+      subject {
+        get :dashboard
+        controller
+      }
+
+      it { should render_template('home/dashboard') }
     end
 
     it_should_behave_like 'an authenticated action'

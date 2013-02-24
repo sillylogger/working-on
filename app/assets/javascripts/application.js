@@ -15,4 +15,5 @@
 //= require jquery.easing
 //= require jquery.ui.totop
 //= require smoothscroll
+//= require nested_form
 //= require_tree .
