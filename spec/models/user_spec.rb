@@ -2,6 +2,17 @@ require 'spec_helper'
 
 describe User do
 
+  it { should validate_presence_of(:email) }
+
+  describe '.before_create' do
+    subject(:created) { user.save; user }
+    let(:user) { User.new email: 'user@example.com' }
+
+    it "populates the domain field" do
+      created[:domain].should == 'example.com'
+    end
+  end
+
   describe '.find_for_google_oauth2' do
     subject { User.find_for_google_oauth2 access_token }
 
