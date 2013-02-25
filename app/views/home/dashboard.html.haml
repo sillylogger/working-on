@@ -1,15 +1,25 @@
 .row
 
   .intro.grid_8
-    %h2 Projects at #{current_user.email.sub(/.*@/,'')}:
+    %h2 Projects at #{current_user.domain}:
 
-    .blank_slate_container
-      %span.blank_slate There aren't any projects yet.
+    - if @company_projects.empty?
+      .blank_slate_container
+        %span.blank_slate There aren't any projects yet.
+
+    - else
+      %ul
+        - @company_projects.each do |project|
+          %li[project]= render project
+
 
   .grid_4
     %h2 Your projects:
 
     %ul
+      - @your_projects.each do |project|
+        %li[project]= render project
+
       %li.blank_slate_container
         .blank_slate= link_to "Add a Project!", new_project_path
 

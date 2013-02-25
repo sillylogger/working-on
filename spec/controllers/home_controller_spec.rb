@@ -14,8 +14,7 @@ describe HomeController do
     subject(:make_request) { get :dashboard }
 
     before { sign_in user }
-
-    let(:user) { User.create! email: 'user@example.com', name: 'John Doe' }
+    let(:user) { FactoryGirl.create(:user) }
 
     describe "the controller" do
       subject {
@@ -24,6 +23,8 @@ describe HomeController do
       }
 
       it { should render_template('home/dashboard') }
+      it { should assign_to(:company_projects) }
+      it { should assign_to(:your_projects).with(user.projects) }
     end
 
     it_should_behave_like 'an authenticated action'

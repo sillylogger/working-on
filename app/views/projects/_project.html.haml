@@ -1,0 +1,8 @@
+- if project.screenshots.any?
+  = link_to project do
+    = image_tag project.screenshots.first.image.thumb, class: 'img-left'
+%h5
+  = link_to project.title, project
+  - if project.url.present?
+    at #{link_to project.url, project.url}
+%p= project.description
