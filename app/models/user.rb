@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
          :rememberable, :trackable,
          :omniauth_providers => [ :google_oauth2 ]
 
+  has_many :projects
+
   validates :email, presence: true
 
   before_save :populate_domain, if: :email_changed?

@@ -3,7 +3,7 @@ describe Users::OmniauthCallbacksController do
   describe "google_oauth2" do
     subject(:make_request) { post :google_oauth2, {}, { 'omniauth.auth' =>  access_token } }
     let(:access_token) { double(:access_token) }
-    let(:user) { User.create! email: 'user@example.com', name: 'John Doe' }
+    let(:user) { FactoryGirl.create(:user) }
 
     before do
       request.env["devise.mapping"] = Devise.mappings[:user]

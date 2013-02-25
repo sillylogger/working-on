@@ -2,11 +2,15 @@ require 'spec_helper'
 
 describe User do
 
-  it { should validate_presence_of(:email) }
+  it { should have_many(:projects) }
+
+  describe "validations" do
+    it { should validate_presence_of(:email) }
+  end
 
   describe '.before_create' do
     subject(:created) { user.save; user }
-    let(:user) { User.new email: 'user@example.com' }
+    let(:user) { FactoryGirl.build(:user) }
 
     it "populates the domain field" do
       created[:domain].should == 'example.com'
@@ -31,8 +35,11 @@ describe User do
     end
 
     context "when the user already exits" do
-      before { User.create! email: access_token.info['email'],
-                            name: original_name }
+      let!(:user) {
+        FactoryGirl.create(:user,
+          email: access_token.info['email'],
+          name: original_name)
+      }
 
       let(:original_name) { 'Peggy Sue' }
 

@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
 
-  before_filter :authenticate_user!, only: [:dashboard]  
+  before_action :authenticate_user!, only: [:dashboard]
+
+  def dashboard
+
+  end
 
   def styleguide
     render :styleguide, layout: 'bare'

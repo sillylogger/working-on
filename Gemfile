@@ -35,8 +35,9 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'yajl-ruby'
 
-  gem 'debugger',       github: 'cldwalker/debugger'
+  gem 'debugger',             github: 'cldwalker/debugger'
+  gem 'factory_girl_rails',   github: 'thoughtbot/factory_girl_rails'
 
-  gem 'rspec-rails',    github: 'rspec/rspec-rails'
+  gem 'rspec-rails',          github: 'rspec/rspec-rails'
   gem 'shoulda-matchers'
 end

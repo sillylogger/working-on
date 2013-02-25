@@ -2,58 +2,80 @@ require 'spec_helper'
 
 describe ProjectsController do
 
-  let(:valid_attributes) {
-    { "title" => "the next Big Thing" }
-  }
+  let(:project) { FactoryGirl.create(:project, user: user) }
+  let(:user)    { FactoryGirl.create(:user) }
+
+  let(:valid_attributes) { FactoryGirl.build(:project).attributes.except('id', 'user_id', 'created_at', 'updated_at') }
+
+  before { sign_in user }
 
   describe "GET show" do
+    subject(:make_request) {
+      get :show, { id: project.to_param }
+    }
+
     it "assigns the requested project as @project" do
-      project = Project.create! valid_attributes
-      get :show, {:id => project.to_param}
+      make_request
       assigns(:project).should eq(project)
     end
+
+    it_should_behave_like 'an authenticated action'
   end
 
   describe "GET new" do
+    subject(:make_request) { get :new }
+
     it "assigns a new project as @project" do
-      get :new, {}
+      make_request
       assigns(:project).should be_a_new(Project)
     end
+
+    it_should_behave_like 'an authenticated action'
   end
 
   describe "GET edit" do
+    subject(:make_request) { 
+      get :edit, { id: project.to_param }
+    }
+
     it "assigns the requested project as @project" do
-      project = Project.create! valid_attributes
-      get :edit, {:id => project.to_param}
+      make_request
       assigns(:project).should eq(project)
     end
+
+    it_should_behave_like 'an authenticated action'
   end
 
   describe "POST create" do
+    subject(:make_request) {
+      post :create, { project: valid_attributes }
+    }
+
     describe "with valid params" do
       it "creates a new Project" do
         expect {
-          post :create, {:project => valid_attributes}
+          make_request
         }.to change(Project, :count).by(1)
       end
 
       it "assigns a newly created project as @project" do
-        post :create, {:project => valid_attributes}
+        make_request
         assigns(:project).should be_a(Project)
         assigns(:project).should be_persisted
       end
 
       it "redirects to the created project" do
-        post :create, {:project => valid_attributes}
+        make_request
         response.should redirect_to(Project.last)
       end
     end
 
     context "with screenshots" do
-      let(:valid_attributes) { {
-        title: "a project with screenshots",
-        screenshots_attributes: { "1" => screenshot_params }
-      } }
+      let(:valid_attributes) {
+        FactoryGirl.build(:project).attributes.merge(
+          screenshots_attributes: { "1" => screenshot_params }
+        )
+      }
 
       let(:screenshot_params) { {
         description: "it's just a screenshot",
@@ -64,7 +86,7 @@ describe ProjectsController do
 
       it "creates the screenshots" do
         expect {
-          put :create, {:project => valid_attributes }
+          make_request
         }.to change(Screenshot, :count).by(1)
 
         screenshot = Screenshot.last
@@ -73,79 +95,82 @@ describe ProjectsController do
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved project as @project" do
+      before do
         # Trigger the behavior that occurs when invalid params are submitted
         Project.any_instance.stub(:save).and_return(false)
-        post :create, {:project => { "title" => "invalid value" }}
+      end
+
+      it "assigns a newly created but unsaved project as @project" do
+        make_request
         assigns(:project).should be_a_new(Project)
       end
 
       it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Project.any_instance.stub(:save).and_return(false)
-        post :create, {:project => { "title" => "invalid value" }}
+        make_request
         response.should render_template("new")
       end
     end
+
+    it_should_behave_like 'an authenticated action'
   end
 
   describe "PUT update" do
+    subject(:make_request) { 
+      put :update, { id: project.to_param, project: valid_attributes }
+    }
+
     describe "with valid params" do
       it "updates the requested project" do
-        project = Project.create! valid_attributes
-        # Assuming there are no other projects in the database, this
-        # specifies that the Project created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Project.any_instance.should_receive(:update).with({ "title" => "MyString" })
-        put :update, {:id => project.to_param, :project => { "title" => "MyString" }}
+        Project.any_instance.should_receive(:update).with(valid_attributes)
+        make_request
       end
 
       it "assigns the requested project as @project" do
-        project = Project.create! valid_attributes
-        put :update, {:id => project.to_param, :project => valid_attributes}
+        make_request
         assigns(:project).should eq(project)
       end
 
       it "redirects to the project" do
-        project = Project.create! valid_attributes
-        put :update, {:id => project.to_param, :project => valid_attributes}
+        make_request
         response.should redirect_to(project)
       end
     end
 
     describe "with invalid params" do
+
+      before { Project.any_instance.stub(:save).and_return(false) }
+
       it "assigns the project as @project" do
-        project = Project.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Project.any_instance.stub(:save).and_return(false)
-        put :update, {:id => project.to_param, :project => { "title" => "invalid value" }}
+        make_request
         assigns(:project).should eq(project)
       end
 
       it "re-renders the 'edit' template" do
-        project = Project.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Project.any_instance.stub(:save).and_return(false)
-        put :update, {:id => project.to_param, :project => { "title" => "invalid value" }}
+        make_request
         response.should render_template("edit")
       end
     end
+
+    it_should_behave_like 'an authenticated action'
   end
 
   describe "DELETE destroy" do
+    subject(:make_request) {
+      delete :destroy, { id: project.to_param }
+    }
+
     it "destroys the requested project" do
-      project = Project.create! valid_attributes
-      expect {
-        delete :destroy, {:id => project.to_param}
-      }.to change(Project, :count).by(-1)
+      project.should be_persisted
+      expect { make_request }.to change(Project, :count).by(-1)
     end
 
     it "redirects to the projects list" do
-      project = Project.create! valid_attributes
-      delete :destroy, {:id => project.to_param}
+      project.should be_persisted
+      make_request
       response.should redirect_to(dashboard_url)
     end
+
+    it_should_behave_like 'an authenticated action'
   end
 
 end

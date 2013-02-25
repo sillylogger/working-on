@@ -1,9 +1,10 @@
 class Project < ActiveRecord::Base
 
+  belongs_to :user
   has_many :screenshots
 
   accepts_nested_attributes_for :screenshots
 
-  validates :title, presence: true
+  validates :user, :title, presence: true
 
 end
