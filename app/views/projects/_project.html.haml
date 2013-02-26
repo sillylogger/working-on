@@ -1,8 +1,18 @@
 - if project.screenshots.any?
-  = link_to project do
-    = image_tag project.screenshots.first.image.thumb, class: 'img-left'
+
+  - screenshot = project.screenshots.first
+  - gallery_name = "project_#{project.to_param}_screenshots"
+
+  = link_to screenshot.image.url, class: 'fancybox', title: screenshot.description, rel: gallery_name do
+    = image_tag screenshot.image.thumb.url, class: 'img-left'
+
+  - (project.screenshots - [screenshot]).each do |hidden_screenshot|
+    = link_to "", hidden_screenshot.image.url, class: 'fancybox', title: hidden_screenshot.description, rel: gallery_name
+
+
 %h5
   = link_to project.title, project
   - if project.url.present?
     at #{link_to project.url, project.url}
+
 %p= project.description

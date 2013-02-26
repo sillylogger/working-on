@@ -14,6 +14,22 @@
 //= require jquery_ujs
 //= require jquery.easing
 //= require jquery.ui.totop
+//= require jquery.fancybox
+//= require jquery.mousewheel
 //= require smoothscroll
 //= require nested_form
+//= require_self
 //= require_tree .
+
+$(document).ready(function(){
+  $('.fancybox').fancybox({
+    helpers: {
+        overlay: {
+            css: {
+                'background' : 'rgba(0, 0, 0, 0.61)'
+            }
+        }
+    }
+  });
+});
+

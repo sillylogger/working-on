@@ -3,14 +3,7 @@ require 'spec_helper'
 describe ScreenshotUploader do
   include CarrierWave::Test::Matchers
 
-  let(:screenshot) {
-    Screenshot.create!(
-      image: image,
-      description: 'app-development inception!'
-    )
-  }
-
-  let(:image) { File.open Rails.root.join('spec/fixtures/ScreenShot.png') }
+  let(:screenshot) { FactoryGirl.create(:screenshot_with_image) }
 
   describe "versions" do
     subject { screenshot.image }

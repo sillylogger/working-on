@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-form[action*='projects'] {
+form.new_project,
+form.edit_project {
 
   .screenshot {
     padding-bottom: 1em;
