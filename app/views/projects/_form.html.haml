@@ -27,13 +27,18 @@
 
       = f.fields_for :screenshots do |screenshot_form|
         .screenshot
+
           .wrapper-block
             = screenshot_form.label :description
             = screenshot_form.text_area :description
 
           .wrapper-block
-            = screenshot_form.label :image, class: 'without-tip'
-            = screenshot_form.file_field :image
+            - if screenshot_form.object.image.present?
+              = image_tag screenshot_form.object.image.thumb.url, class: 'input-aligned', style: 'margin-bottom: 15px;'
+
+            - else 
+              = screenshot_form.label :image, class: 'without-tip'
+              = screenshot_form.file_field :image
 
           .wrapper-block
             = screenshot_form.link_to_remove "Remove this screenshot", class: 'input-aligned'
