@@ -9,12 +9,6 @@
         %p.notice= notice
         %p.alert= alert
 
-    %header.row.top
-      .grid_12
-        %h1= current_user.present? ? "Hi #{current_user.name}!" : "Hi!"
-        %h1 What are you working on?
-        %hr/
-
     = yield
 
     %footer.row

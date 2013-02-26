@@ -29,6 +29,24 @@ body > footer.row {
   p { padding-bottom: 0; }
 }
 
+li.screenshot {
+  img {
+    max-width: 100%;
+  }
+}
+
+li.project {
+  h5 { word-break: break-all; }
+
+  padding-bottom: 1em;
+  border-bottom: 1px dashed grey;
+  margin-bottom: 1em;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
 /***** Screen 960px *****/
 
 .top {

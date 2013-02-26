@@ -1,9 +1,12 @@
-.row
+%header.row.top
   .grid_12
-    %h2
-      #{@project.title},
+    %h1
+      = link_to "<", dashboard_path
+      #{@project.title}
       - if @project.user == current_user
         = link_to 'edit', edit_project_path(@project)
+
+    %hr/
 
 .row
   .grid_6
@@ -15,7 +18,7 @@
     %ul
       - @project.screenshots.each do |screenshot|
         %li[screenshot]
-          = image_tag screenshot.image.thumb, class: 'img-left'
+          = image_tag screenshot.image, class: 'img-left'
           %p= screenshot.description
 
 

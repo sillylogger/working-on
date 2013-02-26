@@ -1,8 +1,6 @@
 - if project.screenshots.any?
 
   - screenshot = project.screenshots.first
-  - gallery_name = "project_#{project.to_param}_screenshots"
-
   = link_to screenshot.image.url, class: 'fancybox', title: screenshot.description, rel: gallery_name do
     = image_tag screenshot.image.thumb.url, class: 'img-left'
 

@@ -1,7 +1,12 @@
+%header.row.top
+  .grid_12
+    %h1 Projects at #{current_user.domain}:
+    %hr/
+
 .row
 
   .intro.grid_8
-    %h2 Projects at #{current_user.domain}:
+    %h2 Recent projects:
 
     - if @company_projects.empty?
       .blank_slate_container
@@ -10,7 +15,7 @@
     - else
       %ul
         - @company_projects.each do |project|
-          %li[project]= render project
+          %li[project]= render partial: 'projects/project', locals: { project: project, gallery_name: 'company-projects' }
 
 
   .grid_4
@@ -18,7 +23,7 @@
 
     %ul
       - @your_projects.each do |project|
-        %li[project]= render project
+        %li[project]= render partial: 'projects/project', locals: { project: project, gallery_name: 'company-projects' }
 
       %li.blank_slate_container
         .blank_slate= link_to "Add a Project!", new_project_path

@@ -1,6 +1,7 @@
-.row
+%header.row.top
   .grid_12
-    %h2= @project.title
+    %h1= link_to @project.title, @project
+    %hr/
 
 = render 'form'
 
