@@ -2,7 +2,8 @@
   .grid_12
     %h2
       #{@project.title},
-      = link_to 'edit', edit_project_path(@project)
+      - if @project.user == current_user
+        = link_to 'edit', edit_project_path(@project)
 
 .row
   .grid_6

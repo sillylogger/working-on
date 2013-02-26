@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe "projects/show" do
+
+  let(:user) { FactoryGirl.build(:user) }
+
   before(:each) do
     @project = assign(:project, stub_model(Project,
       :title => "Title",
@@ -8,6 +11,8 @@ describe "projects/show" do
       :description => "MyText",
       :user_id => 1
     ))
+
+    view.stub(:current_user).and_return user
   end
 
   it "renders attributes in <p>" do

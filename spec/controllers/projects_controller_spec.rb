@@ -44,6 +44,7 @@ describe ProjectsController do
     end
 
     it_should_behave_like 'an authenticated action'
+    it_should_behave_like 'an authorized action'
   end
 
   describe "POST create" do
@@ -152,6 +153,7 @@ describe ProjectsController do
     end
 
     it_should_behave_like 'an authenticated action'
+    it_should_behave_like 'an authorized action'
   end
 
   describe "DELETE destroy" do
@@ -171,6 +173,7 @@ describe ProjectsController do
     end
 
     it_should_behave_like 'an authenticated action'
+    it_should_behave_like 'an authorized action'
   end
 
 end

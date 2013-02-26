@@ -7,8 +7,6 @@ class Project < ActiveRecord::Base
 
   validates :user, :title, presence: true
 
-  def self.from_domain domain
-    joins(:user).where(users: { domain: domain })
-  end
+  scope :from_domain, ->(domain) { includes(:user).where(users: { domain: domain }) }
 
 end
