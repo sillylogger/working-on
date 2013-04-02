@@ -12,18 +12,30 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
+Rails.logger.level = 4
+
 RSpec.configure do |config|
 
+  # helpers for factories, cleaning up the db
   config.include FactoryGirl::Syntax::Methods
-  config.include Devise::TestHelpers, type: :controller
+  config.use_transactional_fixtures = false
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with :truncation
+  end
+  config.before(:each) { DatabaseCleaner.start }
+  config.after(:each) { DatabaseCleaner.clean }
 
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # helpers for login
+  config.include Devise::TestHelpers,           type: :controller
+  config.include Capybara::PageHelpers,         type: :feature
+  config.include Warden::Test::Helpers,         type: :feature
+  config.before(:each, type: :feature) { Warden.test_mode! }
+  config.after(:each, type: :feature) { Warden.test_reset! }
 
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = true
+  # I'm going to render the views until I have 500 controller specs.
+  # Re-evaluate then
+  config.render_views
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -36,7 +48,6 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  # I'm going to render the views until I have 500 controller specs.
-  # Re-evaluate then
-  config.render_views
 end
+
+Capybara.javascript_driver = :webkit

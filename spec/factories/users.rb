@@ -1,10 +1,17 @@
 FactoryGirl.define do
 
   factory :user do
-    name  'John Doe'
+    name  { Faker::Name.name }
+    email { Faker::Internet.email }
 
-    sequence :email do |n|
-      "user-#{n}@example.com"
+    trait :with_projects do
+      ignore do
+        projects_count 2
+      end
+
+      after :create do |user, evaluator|
+        FactoryGirl.create_list :project, evaluator.projects_count, user: user
+      end
     end
   end
 

@@ -38,8 +38,13 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'yajl-ruby'
 
+  gem 'faker',                github: 'stympy/faker'
   gem 'factory_girl_rails',   github: 'thoughtbot/factory_girl_rails'
 
   gem 'rspec-rails',          github: 'rspec/rspec-rails'
+  gem 'database_cleaner',     github: 'bmabey/database_cleaner'
   gem 'shoulda-matchers',     github: 'thoughtbot/shoulda-matchers'
+
+  gem 'capybara-webkit',      github: 'thoughtbot/capybara-webkit'
+  gem 'site_prism',           github: 'natritmeyer/site_prism'
 end

@@ -5,7 +5,7 @@
 
 .row
 
-  .intro.grid_8
+  #recent-projects.grid_8
     %h2 Recent projects:
 
     - if @company_projects.empty?
@@ -18,7 +18,7 @@
           %li[project]= render partial: 'projects/project', locals: { project: project, gallery_name: 'company-projects' }
 
 
-  .grid_4
+  #your-projects.grid_4
     %h2 Your projects:
 
     %ul

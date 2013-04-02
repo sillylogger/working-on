@@ -18,7 +18,7 @@ describe Project do
     let!(:excluded_project) { FactoryGirl.create(:project, user: different_domain_user) }
     let!(:different_domain_user) { FactoryGirl.create(:user, email: 'asdf@working-on.com') }
 
-    it { should include(included_project) }
+    it { should     include(included_project) }
     it { should_not include(excluded_project) }
   end
 

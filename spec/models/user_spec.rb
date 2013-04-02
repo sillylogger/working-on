@@ -13,7 +13,8 @@ describe User do
     let(:user) { FactoryGirl.build(:user) }
 
     it "populates the domain field" do
-      created[:domain].should == 'example.com'
+      created[:domain].should_not include('@')
+      created[:domain].should match(/\.\w{2,4}/)
     end
   end
 
