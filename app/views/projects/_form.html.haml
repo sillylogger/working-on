@@ -1,7 +1,7 @@
-= nested_form_for @project, html: { multipart: true } do |f|
+= nested_form_for project, html: { multipart: true } do |f|
 
-  - if @project.errors.any?
-    %p Sorry, but: #{@project.errors.full_messages.join(', ')}
+  - if project.errors.any?
+    %p Sorry, but: #{project.errors.full_messages.join(', ')}
 
   .row
     .grid_6
@@ -36,7 +36,7 @@
             - if screenshot_form.object.image.present?
               = image_tag screenshot_form.object.image.thumb.url, class: 'input-aligned', style: 'margin-bottom: 15px;'
 
-            - else 
+            - else
               = screenshot_form.label :image, class: 'without-tip'
               = screenshot_form.file_field :image
 

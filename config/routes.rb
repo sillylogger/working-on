@@ -1,7 +1,5 @@
 WorkingOn::Application.routes.draw do
 
-  resources :projects
-
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
@@ -13,7 +11,8 @@ WorkingOn::Application.routes.draw do
   get 'dashboard'   => 'home#dashboard',   as: :dashboard
   get 'styleguide'  => 'home#styleguide',  as: :styleguide
 
-  # You can have the root of your site routed with "root"
+  resources :projects, only: [:show, :new, :create, :edit, :update, :destroy]
+
   root to: 'home#welcome'
 
   # Example of regular route:

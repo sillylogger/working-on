@@ -1,7 +1,7 @@
 .row
   .grid_12
     = link_to root_path do
-      = image_tag "amazium-logo.png", class: 'amazium-logo', alt: 'Amazium' 
+      = image_tag "amazium-logo.png", class: 'amazium-logo', alt: 'Amazium'
 
     = link_to "#", class: 'navigation-btn' do
       = image_tag "icon-menu.png", width: 35, height: 35
@@ -11,39 +11,39 @@
     .grid_12
       %ul.nav
         %li
-          %a#01.current{:href => "#basics"} The basics...
+          %a#01.current{ href: "#basics"} The basics...
         %li
-          %a#02{:href => "#the-grid"} 960 Grid
+          %a#02{ href: "#the-grid"} 960 Grid
         %li
-          %a#03{:href => "#offsetting-columns"} Offsetting
+          %a#03{ href: "#offsetting-columns"} Offsetting
         %li
-          %a#04{:href => "#typography"} Typography
+          %a#04{ href: "#typography"} Typography
         %li
-          %a#05{:href => "#show-hide"} Show/Hide
+          %a#05{ href: "#show-hide"} Show/Hide
         %li
-          %a#06{:href => "#forms-tables"} Forms & Tables
+          %a#06{ href: "#forms-tables"} Forms & Tables
         %li
-          %a#07{:href => "#media-queries"} Media Queries
+          %a#07{ href: "#media-queries"} Media Queries
         %li
-          %a#08{:href => "#images"} Images
+          %a#08{ href: "#images"} Images
         %li
-          %a#09{:href => "#videos"} Videos
+          %a#09{ href: "#videos"} Videos
 .row
   .grid_12
-    %a{:name => "basics"}
+    %a{ name: "basics"}
     = image_tag "screens.png", class: 'img-right', alt: 'Screens'
     %h1 The basics...
     %p So what is Amazium I hear you ask, well you may have been hearing the term "Responsive Web Design" being thrown around the past few months, which simply means a website that can adjust to your screen size without having to make a separate website!
     %p This came about from the simple fact that a lot of people have been making demos of this responsive web design but none seem to be using 960 grid system with 12 columns, and because of this I was forced to make my own..!
     %p
       If you find a bug or have a suggestion to improve Amazium I'm always open to suggestions, just use the
-      %a{:href => "#feedback"}
+      %a{ href: "#feedback"}
         %code comments box
       at the bottom of the page.
 
 .row.top
   .grid_12
-    %a{:name => "the-grid"}
+    %a{ name: "the-grid"}
     %h2
       %strike 960
       1200 Grid
@@ -170,7 +170,7 @@
 .row
   .grid_12
     %hr/
-    %a{:name => "typography"}
+    %a{ name: "typography"}
     %h1 Typography
 .row
   .grid_6

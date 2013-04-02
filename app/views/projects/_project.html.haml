@@ -10,7 +10,7 @@
 
 %h5
   = link_to project.title, project
-  - if project.url.present?
+  - if project.url?
     at #{link_to project.url, project.url}
 
 %p= project.description

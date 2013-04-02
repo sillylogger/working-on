@@ -27,6 +27,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'rails_best_practices', github: 'railsbp/rails_best_practices'
   gem 'debugger',             github: 'cldwalker/debugger'
 
   gem 'rb-fsevent', '~> 0.9.1'

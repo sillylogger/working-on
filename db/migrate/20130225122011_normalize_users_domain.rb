@@ -4,7 +4,7 @@ class NormalizeUsersDomain < ActiveRecord::Migration
 
     User.find_each {|u|
       u.email_will_change!
-      u.save
+      u.save!
     }
   end
 

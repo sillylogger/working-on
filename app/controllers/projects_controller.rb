@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to @project, notice: 'Project was successfully created.'
     else
-      render action: 'new'
+      render 'new'
     end
   end
 
@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
     if @project.update(project_params)
       redirect_to @project, notice: 'Project was successfully updated.'
     else
-      render action: 'edit'
+      render 'edit'
     end
   end
 
@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :url, :description, :screenshots_attributes => [
+      params.require(:project).permit(:title, :url, :description, screenshots_attributes: [
         :id, :description, :image, :_destroy
       ])
     end

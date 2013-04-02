@@ -3,7 +3,7 @@
     %h1= link_to @project.title, @project
     %hr/
 
-= render 'form'
+= render 'form', project: @project
 
 .row
   .grid_12

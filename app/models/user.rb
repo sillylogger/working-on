@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :token_authenticatable,
          :rememberable, :trackable,
-         :omniauth_providers => [ :google_oauth2 ]
+         omniauth_providers: [ :google_oauth2 ]
 
   has_many :projects
 
