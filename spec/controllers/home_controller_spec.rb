@@ -14,17 +14,14 @@ describe HomeController do
     subject(:make_request) { get :dashboard }
 
     before { sign_in user }
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryGirl.create(:project).user }
 
-    describe "the controller" do
-      subject {
-        get :dashboard
-        controller
-      }
+    it { should render_template('home/dashboard') }
 
-      it { should render_template('home/dashboard') }
-      it { should assign_to(:company_projects) }
-      it { should assign_to(:your_projects).with(user.projects) }
+    it "assigns necessary instance variables" do
+      make_request
+      assigns(:your_projects).should == user.projects
+      assigns(:company_projects).should be_present
     end
 
     it_should_behave_like 'an authenticated action'
