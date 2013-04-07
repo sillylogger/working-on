@@ -20,6 +20,10 @@
         = f.label :description
         = f.text_area :description
 
+      - if project.persisted?
+        .wrapper-block
+          = f.label :archived,         class: 'without-tip'
+          = f.check_box :archived
 
     .grid_6
       %header

@@ -23,7 +23,7 @@
 
     %ul
       - @your_projects.each do |project|
-        %li[project]= render partial: 'projects/project', locals: { project: project, gallery_name: 'company-projects' }
+        %li[project]{ class: ("archived" if project.archived?) }= render partial: 'projects/project', locals: { project: project, gallery_name: 'company-projects' }
 
       %li.blank_slate_container
         .blank_slate= link_to "Add a Project!", new_project_path

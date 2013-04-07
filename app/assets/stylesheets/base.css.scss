@@ -465,7 +465,8 @@ a:hover.btn {
   input[type="radio"],
   input[type="checkbox"] {
     line-height: 16px;
-    margin: 0 2px 15px 10px;
+    margin: 10px 2px 15px 10px;
+    width: auto;
   }
 
   input[type="file"] {

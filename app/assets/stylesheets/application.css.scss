@@ -44,6 +44,10 @@ li.project {
   border-bottom: 1px dashed grey;
   margin-bottom: 1em;
 
+  &.archived {
+    opacity: 0.5;
+  }
+
   &:last-of-type {
     border-bottom: none;
   }

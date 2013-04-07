@@ -1,6 +1,9 @@
 %header.row.top
   .grid_12
-    %h1= link_to @project.title, @project
+    %h1
+      = link_to "<", :back
+      = link_to @project.title, @project
+
     %hr/
 
 = render 'form', project: @project

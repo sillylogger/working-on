@@ -4,7 +4,11 @@ class ProjectSection < SitePrism::Section
   element :description, 'p'
 
   def id
-    self['id'].sub('project_', '').to_i
+    root_element['id'].sub('project_', '').to_i
+  end
+
+  def archived?
+    root_element['class'].include?("archive")
   end
 
 end
@@ -15,5 +19,10 @@ class Dashboard < SitePrism::Page
 
   sections :recent_projects, ProjectSection,  "#recent-projects li.project"
   sections :your_projects,   ProjectSection,  "#your-projects li.project"
+
+  def find_your_project id
+    your_projects.find {|p| p.id == id }
+  end
+
   element  :add_project_button,               "#your-projects a[href='/projects/new']"
 end
