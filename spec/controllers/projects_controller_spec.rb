@@ -73,7 +73,7 @@ describe ProjectsController do
 
     context "with screenshots" do
       let(:valid_attributes) {
-        FactoryGirl.build(:project).attributes.merge(
+        FactoryGirl.build(:project).attributes.except('id', 'user_id', 'created_at', 'updated_at').merge(
           screenshots_attributes: { "1" => screenshot_params }
         )
       }
