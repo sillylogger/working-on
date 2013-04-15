@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
 
   validates :user, :title, presence: true
 
-  scope :from_domain, ->(domain) { includes(:user).where(users: { domain: domain }) }
+  scope :recent,      ->          { where(archived: false).order(created_at: :desc)  }
+  scope :from_domain, ->(domain)  { includes(:user).where(users: { domain: domain }) }
 
 end

@@ -60,7 +60,9 @@ feature 'the dashboard & project pages', js: true do
     dashboard.should be_displayed
 
     project_section = dashboard.your_projects.sample
-    id = project_section.id
+    sample_project_id = project_section.id
+    expect(dashboard.recent_projects.map(&:id)).to include(sample_project_id)
+
     project_section.title.click
 
     show_project.should be_displayed
@@ -74,8 +76,10 @@ feature 'the dashboard & project pages', js: true do
     dashboard.load
     dashboard.should be_displayed
 
-    project_section = dashboard.find_your_project id
+    dashboard.recent_projects
+    project_section = dashboard.find_your_project sample_project_id
     expect(project_section).to be_archived
+    expect(dashboard.recent_projects.map(&:id)).to_not include(sample_project_id)
   end
 
 end
