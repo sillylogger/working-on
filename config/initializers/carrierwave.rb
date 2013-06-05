@@ -11,10 +11,10 @@ CarrierWave.configure do |config|
       aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
     }
 
-    config.fog_directory      = 'working-on'
-    config.fog_public         = false
-    config.fog_attributes     = { 'Cache-Control' => 'public, max-age=315576000' }
-
+    config.fog_directory                    = 'working-on'
+    config.fog_public                       = false
+    config.fog_authenticated_url_expiration = 3600
+    config.fog_attributes                   = { 'Cache-Control' => 'public, max-age=315576000' }
   else
     config.storage = :file
   end
