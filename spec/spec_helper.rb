@@ -16,6 +16,9 @@ Rails.logger.level = 4
 
 RSpec.configure do |config|
 
+  config.filter_run :focus => true
+  config.run_all_when_everything_filtered = true
+
   # helpers for factories, cleaning up the db
   config.include FactoryGirl::Syntax::Methods
   config.use_transactional_fixtures = false
@@ -51,3 +54,6 @@ RSpec.configure do |config|
 end
 
 Capybara.javascript_driver = :webkit
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end

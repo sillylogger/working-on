@@ -13,6 +13,7 @@
 /db/*.sqlite3
 
 # Ignore all logfiles, tempfiles, and spec fixtures
+chromedriver.log
 /log/*.log
 /tmp
 

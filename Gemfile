@@ -43,8 +43,11 @@ group :development, :test do
 
   gem 'rspec-rails',          github: 'rspec/rspec-rails'
   gem 'database_cleaner',     github: 'bmabey/database_cleaner'
+
+  gem 'minitest'
   gem 'shoulda-matchers',     github: 'thoughtbot/shoulda-matchers'
 
+  gem 'selenium-webdriver'
   gem 'capybara-webkit',      github: 'thoughtbot/capybara-webkit'
   gem 'site_prism',           github: 'natritmeyer/site_prism'
 end

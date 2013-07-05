@@ -1,6 +1,6 @@
 class ProjectSection < SitePrism::Section
 
-  element :title, 'h5 a'
+  element :title, 'h5 a:first-of-type'
   element :description, 'p'
 
   def id
