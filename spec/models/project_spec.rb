@@ -20,7 +20,7 @@ describe Project do
     it { should_not include(excluded_project) }
     its(:last) { should == really_old_project }
   end
-  
+
   describe '.from_domain' do
     subject { Project.from_domain domain }
 

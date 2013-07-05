@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/argerim/select2-rails.git
+  revision: bfb63267337c6e3f20e6c670ea40d54897d409ae
+  specs:
+    select2-rails (3.4.3)
+      sass-rails
+      thor (~> 0.14)
+
+GIT
   remote: git://github.com/bmabey/database_cleaner.git
   revision: 5dc784af6661fd9067953458fbac1b2e0334f0db
   specs:
@@ -46,6 +54,13 @@ GIT
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+
+GIT
+  remote: git://github.com/mbleigh/acts-as-taggable-on.git
+  revision: 2f2768f854324000ea28d441ef3c0a378158ed40
+  specs:
+    acts-as-taggable-on (2.4.2.pre)
+      rails (>= 3, < 5)
 
 GIT
   remote: git://github.com/natritmeyer/site_prism.git
@@ -369,6 +384,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on!
   capybara-webkit!
   carrierwave!
   coffee-rails!
@@ -393,6 +409,7 @@ DEPENDENCIES
   rmagick!
   rspec-rails!
   sass-rails!
+  select2-rails!
   selenium-webdriver
   shoulda-matchers!
   site_prism!

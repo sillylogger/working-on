@@ -8,10 +8,26 @@
 
     %hr/
 
-.row
+.row.project
   .grid_6
-    %h4= link_to @project.url, @project.url
-    %p.intro= @project.description
+
+    %h4
+      url:
+      = link_to @project.url, @project.url
+
+
+    - if @project.technologies.any?
+      .technologies
+        technologies:
+
+        %ul.inline
+          - @project.technologies.each do |tech|
+            %li.highlight= tech
+
+    %p
+      description:
+      = @project.description
+
 
   .grid_6
 

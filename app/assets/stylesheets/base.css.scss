@@ -244,6 +244,14 @@ ol {
 
 ul {
 
+  &.inline {
+    margin-bottom: 10px;
+
+    li {
+      display: inline-block;
+    }
+  }
+
   &.square {
     list-style: square outside;
     ul {
@@ -444,8 +452,8 @@ a:hover.btn {
   input {
     font-size: 12px;
     padding: 4px 2px;
-    width: 200px;
-    margin: 2px 0 15px 10px;
+    width: 196px;
+    margin: 2px 4px 15px 10px;
   }
 
   input[type="text"],
@@ -459,7 +467,7 @@ a:hover.btn {
     font-size: 12px;
     padding: 2px;
     border: solid 1px #bbbbbb;
-    margin: 2px 0 15px 10px;
+    margin: 2px 4px 15px 10px;
   }
 
   input[type="radio"],
@@ -477,8 +485,8 @@ a:hover.btn {
   textarea {
     padding: 4px 2px;
     border: solid 1px #bbbbbb;
-    width: 200px;
-    margin: 2px 0 15px 10px;
+    width: 196px;
+    margin: 2px 4px 15px 10px;
     font: 12px "Century Gothic", "Trebuchet MS", Helvetica, sans-serif;
   }
 
@@ -502,8 +510,8 @@ a:hover.btn {
     font-size: 12px;
     padding: 4px 2px;
     border: solid 1px #bbbbbb;
-    width: 200px;
-    margin: 2px 0 15px 10px;
+    width: 196px;
+    margin: 2px 4px 15px 10px;
     float: left;
   }
 
@@ -511,7 +519,7 @@ a:hover.btn {
     font-size: 12px;
     padding: 4px 2px;
     border: solid 1px #bbbbbb;
-    margin: 2px 0 15px 10px;
+    margin: 2px 4px 15px 10px;
     float: left;
   }
 
@@ -525,8 +533,8 @@ a:hover.btn {
   textarea {
     padding: 4px 2px;
     border: solid 1px #bbbbbb;
-    width: 140px;
-    margin: 2px 0 15px 10px;
+    width: 136px;
+    margin: 2px 4px 15px 10px;
     font: 12px "Century Gothic", "Trebuchet MS", Helvetica, sans-serif;
     float: left;
   }

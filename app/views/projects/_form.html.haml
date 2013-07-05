@@ -20,6 +20,13 @@
         = f.label :description
         = f.text_area :description
 
+      .wrapper-block
+        = f.label :technology_list, 'Technologies',  class: 'without-tip'
+        = f.text_field :technology_list
+
+      :javascript
+        $("#project_technology_list").select2({ tags: [], formatNoMatches: function() { return '' } });
+
       - if project.persisted?
         .wrapper-block
           = f.label :archived,         class: 'without-tip'

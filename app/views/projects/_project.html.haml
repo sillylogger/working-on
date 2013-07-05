@@ -7,10 +7,14 @@
   - (project.screenshots - [screenshot]).each do |hidden_screenshot|
     = link_to "", hidden_screenshot.image.url, class: 'fancybox', title: hidden_screenshot.description, rel: gallery_name
 
-
 %h5
   = link_to project.title, project
   - if project.url?
     at #{link_to project.url, project.url}
+
+- if project.technologies.any?
+  .technologies
+    - project.technologies.each do |tech|
+      %span.highlight= tech
 
 %p= project.description

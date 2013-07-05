@@ -18,6 +18,7 @@
 //= require jquery.mousewheel
 //= require smoothscroll
 //= require nested_form
+//= require select2
 //= require_self
 //= require_tree .
 

@@ -32,6 +32,7 @@ feature 'the dashboard & project pages', js: true do
   given(:new_title)       { "The Next Big Thing" }
   given(:new_url)         { "http://letsidea.com" }
   given(:new_description) { "A collaborative working space, online." }
+  given(:new_technologies){ %w(Ruby Rails HAML)  }
 
   scenario 'creating & viewing a project' do
     login_as user
@@ -45,19 +46,23 @@ feature 'the dashboard & project pages', js: true do
     new_project.title.set new_title
     new_project.url.set new_url
     new_project.description.set new_description
+
+    new_technologies.each { |t| new_project.add_technology t }
+
     new_project.save_button.click
 
-    show_project.should be_displayed
+    expect(show_project).to be_displayed
     expect(show_project.title.text).to include(new_title)
     expect(show_project.url.text).to eq(new_url)
-    expect(show_project.description.text).to eq(new_description)
+    expect(show_project.description.text).to include(new_description)
+    expect(show_project.technologies.map(&:text).sort).to eq(new_technologies.sort)
   end
 
   scenario 'editing a project, archiving it' do
     login_as user
 
     dashboard.load
-    dashboard.should be_displayed
+    expect(dashboard).to be_displayed
 
     project_section = dashboard.your_projects.sample
     sample_project_id = project_section.id
@@ -65,16 +70,16 @@ feature 'the dashboard & project pages', js: true do
 
     project_section.title.click
 
-    show_project.should be_displayed
+    expect(show_project).to be_displayed
     show_project.edit_link.click
 
-    edit_project.should be_displayed
+    expect(edit_project).to be_displayed
     edit_project.archive.click
 
     edit_project.save_button.click
 
     dashboard.load
-    dashboard.should be_displayed
+    expect(dashboard).to be_displayed
 
     dashboard.recent_projects
     project_section = dashboard.find_your_project sample_project_id

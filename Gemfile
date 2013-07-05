@@ -19,6 +19,8 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
 gem 'jquery-rails',           github: 'rails/jquery-rails'
+gem 'select2-rails',          github: 'argerim/select2-rails'
+gem 'acts-as-taggable-on',    github: 'mbleigh/acts-as-taggable-on'
 
 group :assets do
   gem 'sass-rails',           github: 'rails/sass-rails'
