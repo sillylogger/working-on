@@ -16,7 +16,7 @@ Rails.logger.level = 4
 
 RSpec.configure do |config|
 
-  config.filter_run :focus => true
+  config.filter_run focus: true
   config.run_all_when_everything_filtered = true
 
   # helpers for factories, cleaning up the db
@@ -30,11 +30,11 @@ RSpec.configure do |config|
   config.after(:each) { DatabaseCleaner.clean }
 
   # helpers for login
-  config.include Devise::TestHelpers,           type: :controller
-  config.include Capybara::PageHelpers,         type: :feature
-  config.include Warden::Test::Helpers,         type: :feature
+  config.include Devise::TestHelpers,    type: :controller
+  config.include Capybara::PageHelpers,  type: :feature
+  config.include Warden::Test::Helpers,  type: :feature
   config.before(:each, type: :feature) { Warden.test_mode! }
-  config.after(:each, type: :feature) { Warden.test_reset! }
+  config.after(:each, type: :feature)  { Warden.test_reset! }
 
   # I'm going to render the views until I have 500 controller specs.
   # Re-evaluate then
@@ -51,6 +51,10 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+end
+
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
 
 Capybara.javascript_driver = :webkit

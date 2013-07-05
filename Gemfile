@@ -31,12 +31,11 @@ group :development, :test do
   gem 'debugger',             github: 'cldwalker/debugger'
 
   gem 'rb-fsevent', '~> 0.9.1'
-
-  gem 'guard'
-  gem 'guard-rspec'
-
-  gem 'guard-livereload'
   gem 'yajl-ruby'
+
+  gem 'zeus'
+  gem 'guard-rspec'
+  gem 'guard-livereload'
 
   gem 'faker',                github: 'stympy/faker'
   gem 'factory_girl_rails',   github: 'thoughtbot/factory_girl_rails'
