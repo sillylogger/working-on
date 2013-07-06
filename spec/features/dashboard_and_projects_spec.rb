@@ -49,12 +49,11 @@ feature 'the dashboard & project pages', js: true do
     new_technologies.each { |t| new_project.add_technology t }
 
     new_project.description.set new_description
-
     new_project.save_button.click
 
     expect(show_project).to be_displayed
     expect(show_project.title.text).to include(new_title)
-    expect(show_project.url.text).to eq(new_url)
+    expect(show_project.external_url.text).to eq(new_url)
     expect(show_project.description.text).to include(new_description)
     expect(show_project.technologies.map(&:text).sort).to eq(new_technologies.sort)
   end
@@ -86,6 +85,35 @@ feature 'the dashboard & project pages', js: true do
     project_section = dashboard.find_your_project sample_project_id
     expect(project_section).to be_archived
     expect(dashboard.recent_projects.map(&:id)).to_not include(sample_project_id)
+  end
+
+
+  given(:coworker) { FactoryGirl.create(:user, email: "coworker@#{user.domain}") }
+  given(:project)  { user.projects.sample }
+
+  scenario 'adding a coworker to a project' do
+    login_as user
+
+    show_project.load(id: project.id)
+    expect(show_project).to be_displayed
+    expect(show_project).to_not have_collaborators
+
+    show_project.edit_link.click
+
+    edit_project.add_collaborator coworker.email
+    edit_project.save_button.click
+
+    expect(show_project).to be_displayed
+    expect(show_project.collaborators.map(&:text)).to include(coworker.email)
+
+    logout
+    login_as coworker
+
+    show_project.load(id: project.id)
+    expect(show_project).to be_displayed
+
+    show_project.edit_link.click
+    expect(edit_project).to be_displayed
   end
 
 end

@@ -3,13 +3,21 @@ class ProjectForm < SitePrism::Page
   element  :url,         "input[name*='url']"
   element  :description, "textarea[name*='description']"
 
-  element  :technologies,     "li.select2-search-choice"
-  element  :technology_input, "li.select2-search-field input"
+  element  :technologies,         "li.select2-search-choice"
+  element  :technologies_input,   "li.select2-search-field input"
 
-  element  :save_button, "input[type='submit']"
+  element  :add_collaborator_link,  "a[data-association='collaborators']"
+  elements :collaborator_inputs,    ".collaborator input[type='text']"
+
+  element  :save_button,  "input[type='submit']"
 
   def add_technology tech
-    technology_input.set tech + "\n"
+    technologies_input.set tech + "\n"
+  end
+
+  def add_collaborator collaborator
+    add_collaborator_link.click
+    collaborator_inputs.last.set collaborator
   end
 end
 
@@ -20,18 +28,22 @@ class NewProject < ProjectForm
 end
 
 class ShowProject < SitePrism::Page
+  set_url           '/projects{/id}'
   set_url_matcher %r(/projects/\d+)
 
   element  :title,       "h2"
   element  :edit_link,   "a.edit"
 
-  element  :url,          "p.url a"
+  element  :external_url, "p.external_url a"
   elements :technologies, "div.technologies ul li"
   element  :description,  "p.description"
+
+  elements :collaborators, "div.collaborators ul li"
 end
 
 class EditProject < ProjectForm
   set_url_matcher %r(/projects/\d+/edit)
+
   element  :archive, "input[name*='archive'][value='1']"
 end
 

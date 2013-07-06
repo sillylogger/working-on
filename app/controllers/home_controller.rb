@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    @company_projects = Project.recent.from_domain current_user.domain
+    @company_projects = Project.recent.visible_to current_user
     @your_projects = current_user.projects
   end
 

@@ -7,12 +7,19 @@
     display: inline-block;
     margin-right: 10px;
   }
+
 }
 
 
 form.new_project,
 form.edit_project {
 
+  .collaborators,
+  .screenshots {
+    margin-bottom: 2em;
+  }
+
+  .collaborator,
   .screenshot {
     padding-bottom: 1em;
     border-bottom: 1px dashed grey;

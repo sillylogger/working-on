@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
-    @project = Project.from_domain(current_user.domain).find params[:id]
+    @project = Project.visible_to(current_user).find params[:id]
   end
 
   # GET /projects/new
@@ -45,13 +45,14 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = current_user.projects.find params[:id]
+      @project = Project.editable_by(current_user).find params[:id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :url, :description, :technology_list, :archived, screenshots_attributes: [
-        :id, :description, :image, :_destroy
-      ])
+      params.require(:project).permit(:title, :url, :description, :technology_list, :archived,
+                                      collaborators_attributes: [ :id, :email, :_destroy ],
+                                      screenshots_attributes: [ :id, :description, :image, :_destroy ]
+                                     )
     end
 end

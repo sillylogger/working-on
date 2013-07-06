@@ -209,9 +209,9 @@ ul, ol {
 
 ul {
   list-style: none outside;
+  @include clearfix;
 
   li {
-    @include clearfix;
     margin: 0 0 5px 0;
     padding: 0 0 0 18px;
   }
@@ -276,7 +276,7 @@ ul {
   &.square li,
   &.circle li,
   &.disc li {
-    margin: 0 0 5px 15px;
+    margin: 0 0 5px 18px;
     padding: 0;
     line-height: 18px;
     background: none;

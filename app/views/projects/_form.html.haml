@@ -1,7 +1,8 @@
 = nested_form_for project, html: { multipart: true } do |f|
 
-  - if project.errors.any?
-    %p Sorry, but: #{project.errors.full_messages.join(', ')}
+  .row.grid_6.offset_3
+    - if project.errors.any?
+      %p Sorry, but: #{project.errors.full_messages.join(', ')}
 
   .row
     .grid_6
@@ -29,30 +30,47 @@
           = f.label :archived,         class: 'without-tip'
           = f.check_box :archived
 
-
     .grid_6
-      %header
-        %h4 Screenshots:
 
-      = f.fields_for :screenshots do |screenshot_form|
-        .screenshot
+      .collaborators
+        %header
+          %h4 Collaborators:
 
-          .wrapper-block
-            = screenshot_form.label :description
-            = screenshot_form.text_area :description
+        = f.fields_for :collaborators do |collaborator_form|
+          .collaborator
 
-          .wrapper-block
-            - if screenshot_form.object.image.present?
-              = image_tag screenshot_form.object.image.thumb.url, class: 'input-aligned', style: 'margin-bottom: 15px;'
+            .wrapper-block
+              = collaborator_form.label :email
+              = collaborator_form.text_field :email
 
-            - else
-              = screenshot_form.label :image, class: 'without-tip'
-              = screenshot_form.file_field :image
+            .wrapper-block
+              = collaborator_form.link_to_remove "Remove this collaborator", class: 'input-aligned'
 
-          .wrapper-block
-            = screenshot_form.link_to_remove "Remove this screenshot", class: 'input-aligned'
+        = f.link_to_add "Add collaborator", :collaborators
 
-      = f.link_to_add "Add screenshot", :screenshots
+      .screenshots
+        %header
+          %h4 Screenshots:
+
+        = f.fields_for :screenshots do |screenshot_form|
+          .screenshot
+
+            .wrapper-block
+              = screenshot_form.label :description
+              = screenshot_form.text_area :description
+
+            .wrapper-block
+              - if screenshot_form.object.image.present?
+                = image_tag screenshot_form.object.image.thumb.url, class: 'input-aligned', style: 'margin-bottom: 15px;'
+
+              - else
+                = screenshot_form.label :image, class: 'without-tip'
+                = screenshot_form.file_field :image
+
+            .wrapper-block
+              = screenshot_form.link_to_remove "Remove this screenshot", class: 'input-aligned'
+
+        = f.link_to_add "Add screenshot", :screenshots
 
   .row
     .grid_12
