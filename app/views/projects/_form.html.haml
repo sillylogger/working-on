@@ -19,7 +19,8 @@
         = f.text_field :technology_list
 
       :javascript
-        $("#project_technology_list").select2({ tags: [], formatNoMatches: function() { return '' } });
+        var existing_tags = #{Project.tag_counts_on(:technologies).map(&:name).to_json};
+        $("#project_technology_list").select2({ tags: existing_tags, formatNoMatches: function() { return '' } });
 
       .wrapper-block
         = f.label :description
