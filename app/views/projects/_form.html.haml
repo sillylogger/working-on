@@ -5,9 +5,6 @@
 
   .row
     .grid_6
-      %header
-        %h4 Details:
-
       .wrapper-block
         = f.label :title,       class: 'without-tip'
         = f.text_field :title
@@ -17,20 +14,21 @@
         = f.text_field :url
 
       .wrapper-block
-        = f.label :description
-        = f.text_area :description
-
-      .wrapper-block
         = f.label :technology_list, 'Technologies',  class: 'without-tip'
         = f.text_field :technology_list
 
       :javascript
         $("#project_technology_list").select2({ tags: [], formatNoMatches: function() { return '' } });
 
+      .wrapper-block
+        = f.label :description
+        = f.text_area :description
+
       - if project.persisted?
         .wrapper-block
           = f.label :archived,         class: 'without-tip'
           = f.check_box :archived
+
 
     .grid_6
       %header

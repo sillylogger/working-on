@@ -1,12 +1,7 @@
-%header.row.top
-  .grid_12
-    %h1 Projects at #{current_user.domain}:
-    %hr/
-
-.row
+.row.top
 
   #recent-projects.grid_8
-    %h2 Recent projects:
+    %h2 Projects at #{current_user.domain}:
 
     - if @company_projects.empty?
       .blank_slate_container

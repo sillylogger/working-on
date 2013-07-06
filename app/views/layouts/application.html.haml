@@ -5,8 +5,38 @@
   %body
 
     %header.alerts
-      %p.notice= notice
-      %p.alert= alert
+      - if notice.present?
+        %p.notice= notice
+
+      - if alert.present?
+        %p.alert= alert
+
+    .row
+      = link_to "#", class: 'navigation-btn' do
+        = image_tag "icon-menu.png"
+
+    .navigation
+
+      .row
+        .grid_12
+
+          = link_to dashboard_path do
+            = image_tag "logo.png", class: 'logo float-left', alt: 'working on'
+
+          %div{ style: 'overflow: hidden; height: auto;' }
+
+            - if action_name == "welcome"
+              %h1 Hi!
+              %h1 What are you working on?
+
+            - else
+              %ul.nav
+                %li
+                  = link_to_unless_current 'Dashboard', controller: 'home', action: 'dashboard' do
+                    %span.current Dashboard
+
+                %li.float-right.sign-out
+                  = link_to "Sign Out", destroy_user_session_path
 
     = yield
 

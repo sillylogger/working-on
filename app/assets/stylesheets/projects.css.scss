@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.project {
+  h2 {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
 
 form.new_project,
 form.edit_project {

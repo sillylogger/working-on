@@ -8,13 +8,14 @@
     = link_to "", hidden_screenshot.image.url, class: 'fancybox', title: hidden_screenshot.description, rel: gallery_name
 
 %h5
-  = link_to project.title, project
+  = link_to project.title, project, class: 'title'
+
   - if project.url?
-    at #{link_to project.url, project.url}
+    %small at #{link_to project.url, project.url, class: 'url'}
 
 - if project.technologies.any?
   .technologies
     - project.technologies.each do |tech|
       %span.highlight= tech
 
-%p= project.description
+%p.description= project.description

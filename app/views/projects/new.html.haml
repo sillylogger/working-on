@@ -1,8 +1,8 @@
-%header.row.top
-  .grid_12
-    %h1
-      = link_to "<", dashboard_path
-      New Project
-    %hr/
+.project
 
-= render 'form', project: @project
+  .row.top
+    .grid_12
+      %h2
+        New Project
+
+  = render 'form', project: @project

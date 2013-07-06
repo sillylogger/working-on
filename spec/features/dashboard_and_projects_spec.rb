@@ -45,9 +45,10 @@ feature 'the dashboard & project pages', js: true do
     new_project.should be_displayed
     new_project.title.set new_title
     new_project.url.set new_url
-    new_project.description.set new_description
 
     new_technologies.each { |t| new_project.add_technology t }
+
+    new_project.description.set new_description
 
     new_project.save_button.click
 

@@ -1,7 +1,8 @@
 class ProjectSection < SitePrism::Section
 
-  element :title, 'h5 a:first-of-type'
-  element :description, 'p'
+  element :title,       'a.title'
+  element :url,         'a.url'
+  element :description, 'p.description'
 
   def id
     root_element['id'].sub('project_', '').to_i

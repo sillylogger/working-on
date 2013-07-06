@@ -22,6 +22,7 @@ a {
       margin: 0 0 0 16px;
       padding: 0;
       width: 35px;
+      height: 35px;
       height: auto;
       cursor: pointer;
       float: right;
@@ -33,7 +34,6 @@ a {
 /***** Navigation *****/
 
 .navigation {
-  padding: 0 0 10px 0;
   overflow: hidden;
   height: auto;
 }
@@ -48,6 +48,7 @@ ul.nav {
   text-align: left;
   border-bottom: 1px solid #333;
   width: 100%;
+
   li {
     margin: 0 30px 0 0;
     padding: 0;
@@ -55,11 +56,19 @@ ul.nav {
     text-align: left;
     float: left;
     background-image: none;
-    a {
+
+    &.sign-out {
+      float: right;
+      margin-right: 0;
+      margin-left: 30px;
+    }
+
+    a, span {
       padding: 0 0 3px 0;
       text-decoration: none;
       line-height: 30px;
       color: #333;
+
       &:hover, &.current {
         padding: 0 0 3px 0;
         border-bottom: 5px solid #333;
@@ -152,7 +161,7 @@ span.example {
   }
   a {
     &.navigation-btn {
-      margin: 6px 0 0 0;
+      margin: 0 0 6px 0;
       display: inline-block;
     }
     &.btn-download {

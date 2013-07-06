@@ -1,14 +1,13 @@
-%header.row.top
-  .grid_12
-    %h1
-      = link_to "<", :back
-      = link_to @project.title, @project
+.project
 
-    %hr/
+  .row.top
+    .grid_12
+      %h2
+        #{@project.title}
 
-= render 'form', project: @project
+  = render 'form', project: @project
 
-.row
-  .grid_12
-    %hr
-    = link_to 'Destroy!', project_path(@project), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn-form'
+  .row
+    .grid_12
+      %hr
+      = link_to 'Destroy!', project_path(@project), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn-form'

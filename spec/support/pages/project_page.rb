@@ -22,14 +22,12 @@ end
 class ShowProject < SitePrism::Page
   set_url_matcher %r(/projects/\d+)
 
-  element  :title,       "h1"
-  element  :back_link,   "h1 a:first-of-type"
-  element  :edit_link,   "h1 a:last-of-type"
+  element  :title,       "h2"
+  element  :edit_link,   "a.edit"
 
-  element  :url,          ".project h4 a"
-
-  element  :description,  ".project p"
-  elements :technologies, ".project .technologies ul li"
+  element  :url,          "p.url a"
+  elements :technologies, "div.technologies ul li"
+  element  :description,  "p.description"
 end
 
 class EditProject < ProjectForm
