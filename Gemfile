@@ -39,13 +39,15 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-livereload'
 
+  gem 'quiet_assets',         github: 'evrone/quiet_assets'
+
   gem 'faker',                github: 'stympy/faker'
   gem 'factory_girl_rails',   github: 'thoughtbot/factory_girl_rails'
 
   gem 'rspec-rails',          github: 'rspec/rspec-rails'
   gem 'database_cleaner',     github: 'bmabey/database_cleaner'
 
-  gem 'minitest'
+  gem 'minitest'              # shoulda matchers complain w/o this
   gem 'shoulda-matchers',     github: 'thoughtbot/shoulda-matchers'
 
   gem 'selenium-webdriver'

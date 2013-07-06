@@ -22,6 +22,13 @@ GIT
       debugger-ruby_core_source (~> 1.2.3)
 
 GIT
+  remote: git://github.com/evrone/quiet_assets.git
+  revision: 6f2f472b81e36a68b4d51f193a1b0c9fb8e32c50
+  specs:
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
+
+GIT
   remote: git://github.com/fog/fog.git
   revision: a5d39f73d82fb83790a8acb6507798624c1f65c8
   specs:
@@ -403,6 +410,7 @@ DEPENDENCIES
   omniauth
   omniauth-google-oauth2
   pg
+  quiet_assets!
   rails!
   rails_best_practices!
   rb-fsevent (~> 0.9.1)
